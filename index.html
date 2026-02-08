@@ -1,0 +1,4480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>RITNOME CONGA 🥁 — Train Your Rhythm Like a Boricua</title>
+<meta name="description" content="Born in Puerto Rico. Powered by rhythm. Tap the conga, feel the beat, train your brain.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+    --gold:#FFD700;
+    --orange:#FF6B35;
+    --hot-pink:#FF1493;
+    --tropical-teal:#00D9D9;
+    --sunset:#FF8C42;
+    --deep-purple:#2D1B4E;
+    --warm-black:#1a0f0f;
+    --cream:#FFF8E7;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{
+    font-family:'Outfit',sans-serif;
+    background:linear-gradient(135deg,var(--warm-black) 0%,var(--deep-purple) 50%,#1a0a2e 100%);
+    color:var(--cream);
+    min-height:100vh;
+    min-height:100dvh;
+    overflow-x:hidden;
+}
+
+/* Animated background particles */
+.bg-particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+.particle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:var(--gold);
+    border-radius:50%;
+    opacity:0.3;
+    animation:float 8s ease-in-out infinite;
+}
+.particle:nth-child(2){left:20%;animation-delay:-2s;background:var(--hot-pink)}
+.particle:nth-child(3){left:40%;animation-delay:-4s;background:var(--tropical-teal)}
+.particle:nth-child(4){left:60%;animation-delay:-1s;background:var(--orange)}
+.particle:nth-child(5){left:80%;animation-delay:-3s;background:var(--gold)}
+.particle:nth-child(6){left:10%;animation-delay:-5s;background:var(--sunset)}
+.particle:nth-child(7){left:70%;animation-delay:-6s;background:var(--hot-pink)}
+.particle:nth-child(8){left:90%;animation-delay:-7s;background:var(--tropical-teal)}
+@keyframes float{
+    0%,100%{transform:translateY(100vh) scale(0);opacity:0}
+    10%{opacity:0.6}
+    90%{opacity:0.6}
+    100%{transform:translateY(-100vh) scale(1);opacity:0}
+}
+
+.container{
+    position:relative;
+    z-index:1;
+    max-width:500px;
+    margin:0 auto;
+    padding:20px;
+    min-height:100vh;
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* Header */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    margin-bottom:20px;
+    position:relative;
+    z-index:200;
+}
+.logo{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.4rem;
+    letter-spacing:2px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.logo-icon{
+    position:relative;
+    width:24px;
+    height:32px;
+    background:linear-gradient(180deg,#8B6914 0%,#6B4E0A 50%,#4A3506 100%);
+    border-radius:40% 40% 35% 35% / 20% 20% 35% 35%;
+    box-shadow:0 2px 8px rgba(255,107,53,0.4);
+}
+.logo-icon::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    height:25%;
+    background:linear-gradient(180deg,#F5E6C8 0%,#D4BC8A 100%);
+    border-radius:50%;
+}
+.logo-icon::after{
+    content:'★';
+    position:absolute;
+    top:2px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:8px;
+    color:var(--gold);
+    text-shadow:0 0 4px var(--gold);
+}
+.logo-conga{color:var(--gold)}
+.logo-ritnome{
+    font-size:0.7rem;
+    color:var(--cream);
+    opacity:0.6;
+    letter-spacing:1px;
+}
+
+/* Header Buttons */
+.header-buttons{
+    display:flex;
+    gap:8px;
+    position:relative;
+    z-index:201;
+}
+.header-btn{
+    width:44px;
+    height:44px;
+    min-width:44px;
+    min-height:44px;
+    border-radius:50%;
+    border:2px solid rgba(255,215,0,0.4);
+    background:rgba(0,0,0,0.5);
+    color:var(--gold);
+    font-size:1.2rem;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+    user-select:none;
+    position:relative;
+    z-index:202;
+    outline:none;
+    -webkit-appearance:none;
+    appearance:none;
+}
+.header-btn:active{
+    transform:scale(0.9);
+    background:rgba(255,215,0,0.3);
+    border-color:var(--gold);
+}
+@media(hover:hover){
+    .header-btn:hover{
+        border-color:var(--gold);
+        box-shadow:0 0 15px rgba(255,215,0,0.3);
+    }
+}
+.pr-flag{
+    position:relative;
+    width:48px;
+    height:32px;
+    background:linear-gradient(
+        to bottom,
+        #ED0000 0%, #ED0000 20%,
+        #FFFFFF 20%, #FFFFFF 40%,
+        #ED0000 40%, #ED0000 60%,
+        #FFFFFF 60%, #FFFFFF 80%,
+        #ED0000 80%, #ED0000 100%
+    );
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,0.3);
+}
+.pr-flag::before{
+    content:'';
+    position:absolute;
+    left:0;
+    top:0;
+    width:0;
+    height:0;
+    border-style:solid;
+    border-width:16px 0 16px 20px;
+    border-color:transparent transparent transparent #0050F0;
+}
+.pr-flag::after{
+    content:'★';
+    position:absolute;
+    left:4px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:12px;
+    color:#FFFFFF;
+    text-shadow:0 0 2px rgba(0,0,0,0.3);
+}
+.pr-stripe{display:none}
+
+/* Hero */
+.hero{
+    text-align:center;
+    padding:20px 0 30px;
+}
+.hero-emoji{
+    position:relative;
+    width:80px;
+    height:110px;
+    margin:0 auto;
+    background:linear-gradient(180deg,#8B6914 0%,#6B4E0A 40%,#4A3506 100%);
+    border-radius:40% 40% 35% 35% / 20% 20% 35% 35%;
+    box-shadow:
+        inset 0 -15px 25px rgba(0,0,0,0.5),
+        inset 0 5px 10px rgba(255,255,255,0.15),
+        0 10px 40px rgba(255,107,53,0.4),
+        0 0 60px rgba(255,215,0,0.3);
+    animation:congaBounce 0.8s ease-in-out infinite;
+}
+.hero-emoji::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    height:22%;
+    background:linear-gradient(180deg,#F5E6C8 0%,#D4BC8A 50%,#B8A070 100%);
+    border-radius:50%;
+    box-shadow:
+        inset 0 3px 6px rgba(255,255,255,0.4),
+        inset 0 -3px 6px rgba(0,0,0,0.2),
+        0 0 20px rgba(255,215,0,0.3);
+}
+.hero-emoji::after{
+    content:'★';
+    position:absolute;
+    top:8px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:22px;
+    color:var(--gold);
+    text-shadow:0 0 10px var(--gold), 0 0 20px var(--orange);
+    animation:starPulse 1.5s ease-in-out infinite;
+}
+@keyframes congaBounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+}
+@keyframes starPulse{
+    0%,100%{opacity:1;text-shadow:0 0 10px var(--gold), 0 0 20px var(--orange)}
+    50%{opacity:0.8;text-shadow:0 0 20px var(--gold), 0 0 40px var(--orange), 0 0 60px var(--hot-pink)}
+}
+.hero-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:3rem;
+    letter-spacing:4px;
+    margin:15px 0 5px;
+    background:linear-gradient(135deg,var(--gold),var(--orange),var(--hot-pink));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    animation:shimmer 3s linear infinite;
+    background-size:200% auto;
+}
+@keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+
+/* Bilingual Tagline */
+.hero-tagline{
+    text-align:center;
+    margin-bottom:8px;
+}
+.tagline-es{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.4rem;
+    letter-spacing:4px;
+    background:linear-gradient(135deg,var(--gold),var(--orange),var(--hot-pink));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    display:block;
+    text-shadow:none;
+    filter:drop-shadow(0 0 10px rgba(255,215,0,0.3));
+}
+.tagline-en{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1rem;
+    color:var(--cream);
+    letter-spacing:3px;
+    opacity:0.9;
+    display:block;
+    margin-top:2px;
+}
+.hero-sub{
+    font-size:0.75rem;
+    color:var(--tropical-teal);
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+/* Location Badge */
+.location-badge{
+    display:none;
+    padding:6px 14px;
+    background:rgba(0,0,0,0.4);
+    border:1px solid rgba(255,215,0,0.3);
+    border-radius:20px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.7rem;
+    color:var(--gold);
+    letter-spacing:2px;
+    margin-top:8px;
+    animation:badgeFadeIn 0.5s ease-out;
+}
+.location-badge.show{display:inline-block}
+@keyframes badgeFadeIn{
+    0%{opacity:0;transform:translateY(-10px)}
+    100%{opacity:1;transform:translateY(0)}
+}
+
+/* Game Area */
+.game-area{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:20px 0;
+}
+
+/* BPM Display */
+.bpm-display{
+    margin-top:25px;
+    text-align:center;
+}
+.bpm-label{
+    font-size:0.65rem;
+    letter-spacing:3px;
+    color:var(--cream);
+    opacity:0.5;
+    text-transform:uppercase;
+}
+.bpm-value{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2.5rem;
+    color:var(--gold);
+    letter-spacing:4px;
+}
+.bpm-value span{
+    font-size:1rem;
+    opacity:0.6;
+}
+
+/* Score Display */
+.score-area{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:20px;
+}
+.score-box{
+    text-align:center;
+    padding:15px 25px;
+    background:rgba(255,255,255,0.05);
+    border-radius:16px;
+    border:1px solid rgba(255,215,0,0.2);
+}
+.score-label{
+    font-size:0.6rem;
+    letter-spacing:2px;
+    color:var(--cream);
+    opacity:0.5;
+    text-transform:uppercase;
+    margin-bottom:5px;
+}
+.score-value{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.8rem;
+    color:var(--gold);
+}
+
+/* Feedback */
+.feedback{
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:15px;
+}
+.feedback-text{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.5rem;
+    letter-spacing:4px;
+    opacity:0;
+    transition:opacity 0.1s;
+}
+.feedback-text.show{opacity:1}
+.feedback-text.perfect{color:var(--gold);text-shadow:0 0 20px var(--gold)}
+.feedback-text.good{color:var(--tropical-teal)}
+.feedback-text.early{color:var(--orange)}
+.feedback-text.late{color:var(--hot-pink)}
+.feedback-text.miss{color:#ff4444}
+.feedback-text.wrong{color:#ff4444}
+.feedback-text.start{color:var(--cream);opacity:0.7;font-size:1rem}
+
+/* Conga row on fire - 5+ streak */
+.conga-row.on-fire .tap-conga{
+    box-shadow:0 0 20px rgba(255,107,53,0.4), 0 4px 12px rgba(0,0,0,0.4);
+}
+.conga-row.on-fire .tap-conga.lit{
+    box-shadow:0 0 40px var(--gold), 0 0 60px var(--orange), 0 8px 20px rgba(255,107,53,0.6);
+}
+
+/* FUEGO MODE - 10+ streak 🔥 */
+.conga-row.fuego-mode .tap-conga{
+    animation:flamePulse 0.3s ease-in-out infinite alternate;
+    box-shadow:0 0 30px rgba(255,107,53,0.6), 0 0 50px rgba(255,69,0,0.4), 0 4px 12px rgba(0,0,0,0.4);
+}
+.conga-row.fuego-mode .tap-conga::before{
+    background:linear-gradient(180deg,#FFE4A0 0%,#FFD700 50%,#FF8C42 100%)!important;
+}
+.conga-row.fuego-mode .tap-conga.lit{
+    box-shadow:0 0 50px var(--gold), 0 0 80px var(--orange), 0 0 100px rgba(255,69,0,0.5), 0 8px 20px rgba(255,107,53,0.6);
+    animation:fuegoBurst 0.15s ease-out;
+}
+@keyframes flamePulse{
+    0%{transform:scale(1);filter:brightness(1)}
+    100%{transform:scale(1.03);filter:brightness(1.1)}
+}
+@keyframes fuegoBurst{
+    0%{transform:scale(1.2) translateY(-5px)}
+    50%{transform:scale(1.35) translateY(-8px)}
+    100%{transform:scale(1.2) translateY(-5px)}
+}
+
+/* Flame particles for fuego mode */
+.flame{
+    position:absolute;
+    width:8px;
+    height:12px;
+    background:linear-gradient(to top, #ff6600, #ffcc00, transparent);
+    border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+    opacity:0.8;
+    animation:flameRise 0.6s ease-out infinite;
+    pointer-events:none;
+}
+@keyframes flameRise{
+    0%{transform:translateY(0) scale(1);opacity:0.8}
+    100%{transform:translateY(-30px) scale(0.3);opacity:0}
+}
+
+/* Combo Multiplier Display */
+.combo-display{
+    position:fixed;
+    top:50%;
+    right:20px;
+    transform:translateY(-50%);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2.5rem;
+    color:var(--gold);
+    text-shadow:0 0 20px var(--gold), 0 0 40px var(--orange);
+    opacity:0;
+    transition:all 0.3s;
+    z-index:100;
+    pointer-events:none;
+}
+.combo-display.show{
+    opacity:1;
+    animation:comboPop 0.3s ease-out;
+}
+.combo-display.x2{color:#FFD700}
+.combo-display.x3{color:#FF8C42}
+.combo-display.x4{color:#FF6B35}
+.combo-display.x5{color:#FF1493;font-size:3rem}
+@keyframes comboPop{
+    0%{transform:translateY(-50%) scale(0.5)}
+    50%{transform:translateY(-50%) scale(1.2)}
+    100%{transform:translateY(-50%) scale(1)}
+}
+
+/* Streak fire indicator */
+.streak-badge{
+    position:absolute;
+    top:-8px;
+    right:-8px;
+    background:linear-gradient(135deg,#FF6B35,#FF1493);
+    color:white;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.7rem;
+    padding:2px 6px;
+    border-radius:10px;
+    opacity:0;
+    transform:scale(0);
+    transition:all 0.3s;
+}
+.streak-badge.show{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* ============ PHASE 3: VISUAL EFFECTS ============ */
+
+/* Neon Glow Trail on tap */
+.glow-trail{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+    height:100%;
+    border-radius:40% 40% 35% 35% / 25% 25% 40% 40%;
+    pointer-events:none;
+    animation:glowTrail 0.8s ease-out forwards;
+    z-index:-1;
+}
+@keyframes glowTrail{
+    0%{
+        box-shadow:0 0 30px var(--conga-glow), 0 0 60px var(--conga-glow);
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1);
+    }
+    100%{
+        box-shadow:0 0 80px var(--conga-glow), 0 0 120px var(--conga-glow);
+        opacity:0;
+        transform:translate(-50%,-50%) scale(1.5);
+    }
+}
+
+/* Beat Visualizer Ring - pulses from center conga */
+.beat-ring{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:60px;
+    height:60px;
+    border:3px solid var(--gold);
+    border-radius:50%;
+    opacity:0;
+    pointer-events:none;
+    animation:beatRingPulse 0.6s ease-out forwards;
+}
+@keyframes beatRingPulse{
+    0%{
+        width:60px;
+        height:60px;
+        opacity:0.8;
+        border-width:3px;
+    }
+    100%{
+        width:300px;
+        height:300px;
+        opacity:0;
+        border-width:1px;
+    }
+}
+.beat-ring.pink{border-color:var(--hot-pink)}
+.beat-ring.teal{border-color:var(--tropical-teal)}
+.beat-ring.orange{border-color:var(--orange)}
+
+/* Center Beat Visualizer Container */
+.beat-visualizer{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:0;
+}
+
+/* Neon outline on congas when active */
+.tap-conga.neon-active{
+    animation:neonPulse 0.5s ease-in-out;
+}
+@keyframes neonPulse{
+    0%,100%{filter:brightness(1) drop-shadow(0 0 5px var(--conga-glow))}
+    50%{filter:brightness(1.3) drop-shadow(0 0 20px var(--conga-glow)) drop-shadow(0 0 40px var(--conga-glow))}
+}
+
+/* ============ THEME MODES ============ */
+
+/* Theme Selector */
+.theme-selector{
+    display:flex;
+    gap:6px;
+    justify-content:center;
+    margin:12px 0;
+    flex-wrap:wrap;
+}
+.theme-btn{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,0.2);
+    cursor:pointer;
+    transition:all 0.3s;
+    position:relative;
+    overflow:hidden;
+    -webkit-tap-highlight-color:transparent;
+}
+.theme-btn:active{transform:scale(0.9)}
+.theme-btn.active{border-color:var(--gold);box-shadow:0 0 10px var(--gold)}
+.theme-btn.night{background:linear-gradient(135deg,#1a0a2e,#2D1B4E)}
+.theme-btn.sunset{background:linear-gradient(135deg,#FF6B35,#FF1493,#9B59B6)}
+.theme-btn.beach{background:linear-gradient(135deg,#2d5a6a,#00D9D9,#3d7a7a)}
+.theme-btn.neon{background:linear-gradient(135deg,#0a0a0a,#1a1a2e);box-shadow:inset 0 0 10px #FF1493}
+/* Puerto Rico Location Themes 🇵🇷 */
+.theme-btn.sanjuan{background:linear-gradient(135deg,#1a2a4a,#5DADE2,#FFD700)}
+.theme-btn.yunque{background:linear-gradient(135deg,#0a2a1a,#228B22,#32CD32)}
+.theme-btn.flamenco{background:linear-gradient(135deg,#1a3a4a,#40E0D0,#2a5a5a)}
+
+/* Night Mode (Default) */
+body.theme-night{
+    --bg-gradient:linear-gradient(135deg,#1a0f0f 0%,#2D1B4E 50%,#1a0a2e 100%);
+}
+body.theme-night .container{
+    background:transparent;
+}
+
+/* Sunset Mode 🌅 */
+body.theme-sunset{
+    background:linear-gradient(180deg,#1a0a2e 0%,#4a1942 30%,#8B2500 60%,#FF6B35 85%,#FFD700 100%);
+}
+body.theme-sunset .tap-conga{
+    filter:brightness(1.1);
+}
+body.theme-sunset .conga-row{
+    filter:drop-shadow(0 0 30px rgba(255,107,53,0.3));
+}
+
+/* Beach Mode 🏖️ - Tropical Dusk */
+body.theme-beach{
+    background:linear-gradient(180deg,#1a3a4a 0%,#2d5a6a 25%,#3d7a7a 50%,#4a8a6a 75%,#2d4a3a 100%);
+}
+body.theme-beach .tap-conga{
+    filter:brightness(1.1) saturate(1.1);
+    box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 20px rgba(0,217,217,0.3), 0 4px 12px rgba(0,0,0,0.4);
+}
+body.theme-beach .hero-title,
+body.theme-beach .logo-conga{
+    background:linear-gradient(135deg,#00D9D9,#FFD700);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+body.theme-beach .feedback-text{
+    color:#00D9D9;
+    text-shadow:0 0 15px rgba(0,217,217,0.5);
+}
+body.theme-beach .conga-row{
+    filter:drop-shadow(0 0 25px rgba(0,217,217,0.3));
+}
+body.theme-beach .score-value,
+body.theme-beach .bpm-value{
+    color:#00D9D9;
+}
+
+/* ============ PHASE 6: PUERTO RICO THEMES 🇵🇷 ============ */
+
+/* Old San Juan 🏰 - Colorful colonial at dusk */
+body.theme-sanjuan{
+    background:linear-gradient(180deg,
+        #0a0f1a 0%,
+        #1a1a3a 20%,
+        #1a2a4a 40%,
+        #1a3a5a 60%,
+        #0f2040 80%,
+        #0a1020 100%
+    );
+}
+body.theme-sanjuan::before{
+    content:'';
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:20%;
+    background:linear-gradient(90deg,
+        #FFD700 0%, #FF6B35 15%, #FF1493 30%, 
+        #00CED1 45%, #32CD32 60%, #FFD700 75%, 
+        #FF6B35 90%, #FF1493 100%
+    );
+    opacity:0.08;
+    pointer-events:none;
+    z-index:0;
+}
+body.theme-sanjuan .tap-conga{
+    filter:brightness(1.1) saturate(1.1);
+}
+body.theme-sanjuan .hero-title{
+    background:linear-gradient(135deg,#FFD700,#1E90FF,#FF6B35);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+body.theme-sanjuan .conga-row{
+    filter:drop-shadow(0 0 25px rgba(30,144,255,0.3));
+}
+body.theme-sanjuan .score-value,
+body.theme-sanjuan .bpm-value{
+    color:#5DADE2;
+}
+body.theme-sanjuan .feedback-text{
+    color:#FFD700;
+    text-shadow:0 0 15px rgba(255,215,0,0.5);
+}
+
+/* El Yunque 🌴 - Tropical Rainforest */
+body.theme-yunque{
+    background:linear-gradient(180deg,
+        #0a1f0a 0%,
+        #1a3a1a 25%,
+        #2a5a2a 50%,
+        #1a4a2a 75%,
+        #0a2a1a 100%
+    );
+}
+body.theme-yunque::before{
+    content:'';
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:
+        radial-gradient(ellipse at 20% 80%, rgba(50,205,50,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(144,238,144,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(34,139,34,0.05) 0%, transparent 70%);
+    pointer-events:none;
+    z-index:0;
+}
+body.theme-yunque .tap-conga{
+    filter:brightness(1.1) saturate(1.3);
+    box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 20px rgba(50,205,50,0.3), 0 4px 12px rgba(0,0,0,0.4);
+}
+body.theme-yunque .hero-title{
+    background:linear-gradient(135deg,#32CD32,#FFD700,#90EE90);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+body.theme-yunque .conga-row{
+    filter:drop-shadow(0 0 30px rgba(50,205,50,0.4));
+}
+body.theme-yunque .score-value,
+body.theme-yunque .bpm-value{
+    color:#32CD32;
+}
+body.theme-yunque .feedback-text{
+    color:#90EE90;
+    text-shadow:0 0 15px rgba(144,238,144,0.5);
+}
+
+/* Flamenco Beach 🏖️ - Moonlit crystal waters */
+body.theme-flamenco{
+    background:linear-gradient(180deg,
+        #0a1a2a 0%,
+        #0f2a3a 25%,
+        #1a3a4a 45%,
+        #1a4a5a 60%,
+        #2a4a4a 75%,
+        #1a3a3a 100%
+    );
+}
+body.theme-flamenco::before{
+    content:'';
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:15%;
+    background:linear-gradient(180deg, transparent, rgba(64,224,208,0.1));
+    pointer-events:none;
+    z-index:0;
+}
+body.theme-flamenco .tap-conga{
+    filter:brightness(1.1) saturate(1.1);
+    box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 20px rgba(64,224,208,0.3), 0 4px 12px rgba(0,0,0,0.4);
+}
+body.theme-flamenco .hero-title{
+    background:linear-gradient(135deg,#40E0D0,#FFD700);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+body.theme-flamenco .conga-row{
+    filter:drop-shadow(0 0 25px rgba(64,224,208,0.3));
+}
+body.theme-flamenco .score-value,
+body.theme-flamenco .bpm-value{
+    color:#40E0D0;
+}
+body.theme-flamenco .feedback-text{
+    color:#40E0D0;
+    text-shadow:0 0 15px rgba(64,224,208,0.5);
+}
+
+/* Neon Mode 💜 */
+body.theme-neon{
+    background:#0a0a0f;
+}
+body.theme-neon .tap-conga{
+    background:linear-gradient(180deg,#1a1a2e 0%,#0f0f1a 100%);
+    border:2px solid var(--conga-color);
+    box-shadow:0 0 20px var(--conga-glow), inset 0 0 15px rgba(0,0,0,0.8);
+}
+body.theme-neon .tap-conga::before{
+    background:linear-gradient(180deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.05) 100%);
+    border:1px solid var(--conga-color);
+    box-shadow:0 0 10px var(--conga-glow);
+}
+body.theme-neon .tap-conga.lit{
+    background:linear-gradient(180deg,#2a1a4e 0%,#1a0a2e 100%);
+    box-shadow:0 0 40px var(--conga-glow), 0 0 80px var(--conga-glow), inset 0 0 20px var(--conga-glow);
+}
+body.theme-neon .conga-row{
+    filter:drop-shadow(0 0 20px rgba(255,20,147,0.3));
+}
+body.theme-neon .hero-title{
+    animation:neonFlicker 2s ease-in-out infinite;
+}
+@keyframes neonFlicker{
+    0%,100%{opacity:1;text-shadow:0 0 20px var(--gold), 0 0 40px var(--orange)}
+    92%{opacity:1}
+    93%{opacity:0.8}
+    94%{opacity:1}
+    95%{opacity:0.9}
+    96%{opacity:1}
+}
+
+/* Scanlines overlay for neon mode */
+body.theme-neon::after{
+    content:'';
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.1) 0px,
+        rgba(0,0,0,0.1) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events:none;
+    z-index:9999;
+    opacity:0.3;
+}
+
+/* Controls */
+.controls{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:auto;
+    padding:20px 0;
+}
+.start-btn{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:50px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.4rem;
+    letter-spacing:4px;
+    cursor:pointer;
+    background:linear-gradient(135deg,var(--gold),var(--orange));
+    color:var(--warm-black);
+    box-shadow:0 8px 30px rgba(255,215,0,0.4);
+    transition:all 0.3s;
+}
+.start-btn:active{transform:scale(0.98)}
+.start-btn:disabled{opacity:0.5;cursor:not-allowed}
+.start-btn.playing{
+    background:linear-gradient(135deg,var(--hot-pink),#ff6b9d);
+}
+
+/* BPM Selector */
+.bpm-selector{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+}
+.bpm-option{
+    padding:12px 20px;
+    border:2px solid rgba(255,215,0,0.3);
+    border-radius:12px;
+    background:transparent;
+    color:var(--cream);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1rem;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:all 0.2s;
+}
+.bpm-option:active{transform:scale(0.95)}
+.bpm-option.active{
+    border-color:var(--gold);
+    background:rgba(255,215,0,0.15);
+    color:var(--gold);
+}
+
+/* Pattern Selector */
+.pattern-selector{
+    display:flex;
+    gap:5px;
+    justify-content:center;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+.pattern-option{
+    padding:6px 10px;
+    border:2px solid rgba(255,20,147,0.3);
+    border-radius:15px;
+    background:transparent;
+    color:var(--cream);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.65rem;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:all 0.2s;
+    -webkit-tap-highlight-color:transparent;
+}
+.pattern-option:active{transform:scale(0.95)}
+.pattern-option.active{
+    border-color:var(--hot-pink);
+    background:rgba(255,20,147,0.2);
+    color:var(--hot-pink);
+}
+
+/* ============ PHASE 4: CHALLENGE MODES ============ */
+
+/* Mode Selector */
+.mode-selector{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    margin-bottom:12px;
+    flex-wrap:wrap;
+}
+.mode-option{
+    padding:10px 16px;
+    border:2px solid rgba(0,217,217,0.3);
+    border-radius:12px;
+    background:transparent;
+    color:var(--cream);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.8rem;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:all 0.2s;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
+    min-width:80px;
+}
+.mode-option .mode-icon{font-size:1.2rem}
+.mode-option .mode-name{font-size:0.7rem;opacity:0.8}
+.mode-option:active{transform:scale(0.95)}
+.mode-option.active{
+    border-color:var(--tropical-teal);
+    background:rgba(0,217,217,0.15);
+    color:var(--tropical-teal);
+}
+.mode-option.locked{
+    opacity:0.4;
+    pointer-events:none;
+}
+.mode-option.locked::after{
+    content:'🔒';
+    font-size:0.6rem;
+    position:absolute;
+    top:-5px;
+    right:-5px;
+}
+
+/* Challenge Timer Display */
+.challenge-timer{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,0.8);
+    border:2px solid var(--gold);
+    border-radius:20px;
+    padding:8px 20px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.5rem;
+    color:var(--gold);
+    z-index:150;
+    display:none;
+    box-shadow:0 0 20px rgba(255,215,0,0.3);
+}
+.challenge-timer.show{display:block}
+.challenge-timer.warning{
+    border-color:#FF6B35;
+    color:#FF6B35;
+    animation:timerPulse 0.5s ease-in-out infinite;
+}
+.challenge-timer.critical{
+    border-color:#FF1493;
+    color:#FF1493;
+    animation:timerPulse 0.25s ease-in-out infinite;
+}
+@keyframes timerPulse{
+    0%,100%{transform:translateX(-50%) scale(1)}
+    50%{transform:translateX(-50%) scale(1.1)}
+}
+
+/* Challenge Goal Display */
+.challenge-goal{
+    position:fixed;
+    top:70px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,0.7);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:15px;
+    padding:6px 15px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.9rem;
+    color:var(--cream);
+    z-index:150;
+    display:none;
+    letter-spacing:1px;
+}
+.challenge-goal.show{display:block}
+.challenge-goal .goal-progress{color:var(--gold)}
+
+/* Challenge Complete Modal */
+.challenge-complete{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:300;
+    flex-direction:column;
+    gap:20px;
+}
+.challenge-complete.show{display:flex}
+.challenge-result{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:3rem;
+    text-align:center;
+    letter-spacing:4px;
+}
+.challenge-result.win{
+    color:var(--gold);
+    text-shadow:0 0 30px var(--gold);
+}
+.challenge-result.lose{
+    color:#FF6B35;
+    text-shadow:0 0 30px #FF6B35;
+}
+.challenge-stats{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.2rem;
+    color:var(--cream);
+    text-align:center;
+    letter-spacing:2px;
+}
+.challenge-retry-btn{
+    padding:15px 40px;
+    border:none;
+    border-radius:30px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.2rem;
+    letter-spacing:3px;
+    cursor:pointer;
+    background:linear-gradient(135deg,var(--gold),var(--orange));
+    color:var(--warm-black);
+    box-shadow:0 5px 20px rgba(255,215,0,0.4);
+    transition:all 0.3s;
+}
+.challenge-retry-btn:active{transform:scale(0.95)}
+
+/* Practice Mode Indicator */
+.practice-indicator{
+    position:fixed;
+    bottom:100px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(155,89,182,0.9);
+    border-radius:20px;
+    padding:8px 20px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.9rem;
+    color:white;
+    letter-spacing:2px;
+    display:none;
+    z-index:100;
+}
+.practice-indicator.show{display:block}
+
+/* Countdown Overlay */
+.countdown-overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:250;
+}
+.countdown-overlay.show{display:flex}
+.countdown-number{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:8rem;
+    color:var(--gold);
+    text-shadow:0 0 50px var(--gold), 0 0 100px var(--orange);
+    animation:countdownPop 0.8s ease-out;
+}
+@keyframes countdownPop{
+    0%{transform:scale(2);opacity:0}
+    50%{transform:scale(1.2);opacity:1}
+    100%{transform:scale(1);opacity:1}
+}
+
+/* ============ PHASE 5: PROGRESS & REWARDS ============ */
+
+/* Player Rank Badge */
+.rank-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 12px;
+    border-radius:20px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.8rem;
+    letter-spacing:1px;
+    margin-bottom:10px;
+}
+.rank-badge .rank-icon{font-size:1.1rem}
+.rank-badge.principiante{
+    background:rgba(139,105,20,0.3);
+    border:1px solid #8B6914;
+    color:#D4A84B;
+}
+.rank-badge.ritmico{
+    background:rgba(192,192,192,0.2);
+    border:1px solid #C0C0C0;
+    color:#E0E0E0;
+}
+.rank-badge.maestro{
+    background:rgba(255,215,0,0.2);
+    border:1px solid var(--gold);
+    color:var(--gold);
+}
+.rank-badge.leyenda{
+    background:linear-gradient(135deg,rgba(255,215,0,0.3),rgba(255,20,147,0.3));
+    border:2px solid var(--gold);
+    color:var(--gold);
+    box-shadow:0 0 15px rgba(255,215,0,0.3);
+    animation:legendGlow 2s ease-in-out infinite;
+}
+@keyframes legendGlow{
+    0%,100%{box-shadow:0 0 15px rgba(255,215,0,0.3)}
+    50%{box-shadow:0 0 25px rgba(255,215,0,0.5), 0 0 35px rgba(255,20,147,0.3)}
+}
+
+/* ============ PHASE 7: UX ENHANCEMENTS ============ */
+
+/* Settings Button */
+.settings-btn{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,0.2);
+    background:rgba(0,0,0,0.3);
+    color:var(--cream);
+    font-size:1rem;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all 0.3s;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+}
+.settings-btn:active{transform:scale(0.9);background:rgba(255,255,255,0.1)}
+
+/* Settings Panel */
+.settings-panel{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.98);
+    z-index:100000;
+    display:none;
+    flex-direction:column;
+    padding:20px;
+    overflow-y:auto;
+}
+.settings-panel.show{display:flex}
+.settings-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+.settings-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.8rem;
+    color:var(--cream);
+    letter-spacing:3px;
+}
+.settings-close{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:2px solid #FFD700;
+    background:rgba(45,27,78,0.95);
+    color:#FFD700;
+    font-size:1.8rem;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    box-shadow:0 0 15px rgba(255,215,0,0.4);
+}
+.settings-close:active{background:rgba(255,215,0,0.3);transform:scale(0.9)}
+
+/* Settings Section */
+.settings-section{
+    background:rgba(255,255,255,0.05);
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:15px;
+}
+.settings-section-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1rem;
+    color:var(--gold);
+    letter-spacing:2px;
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+/* Toggle Switch */
+.setting-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.setting-row:last-child{border-bottom:none}
+.setting-label{
+    font-size:0.9rem;
+    color:var(--cream);
+}
+.setting-desc{
+    font-size:0.7rem;
+    color:var(--cream);
+    opacity:0.5;
+    margin-top:3px;
+}
+.toggle-switch{
+    position:relative;
+    width:50px;
+    height:28px;
+    background:rgba(255,255,255,0.1);
+    border-radius:14px;
+    cursor:pointer;
+    transition:all 0.3s;
+    -webkit-tap-highlight-color:transparent;
+}
+.toggle-switch.active{
+    background:var(--gold);
+}
+.toggle-switch::after{
+    content:'';
+    position:absolute;
+    top:3px;
+    left:3px;
+    width:22px;
+    height:22px;
+    background:white;
+    border-radius:50%;
+    transition:all 0.3s;
+    box-shadow:0 2px 5px rgba(0,0,0,0.3);
+}
+.toggle-switch.active::after{
+    left:25px;
+}
+
+/* Volume Slider */
+.volume-control{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 0;
+}
+.volume-icon{font-size:1.2rem}
+.volume-slider{
+    flex:1;
+    height:6px;
+    -webkit-appearance:none;
+    appearance:none;
+    background:rgba(255,255,255,0.2);
+    border-radius:3px;
+    outline:none;
+}
+.volume-slider::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    appearance:none;
+    width:20px;
+    height:20px;
+    background:var(--gold);
+    border-radius:50%;
+    cursor:pointer;
+    box-shadow:0 2px 5px rgba(0,0,0,0.3);
+}
+.volume-value{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1rem;
+    color:var(--gold);
+    min-width:35px;
+    text-align:right;
+}
+
+/* One-Hand Mode */
+body.one-hand-mode .conga-row{
+    width:220px;
+    height:220px;
+    gap:5px;
+}
+body.one-hand-mode .tap-conga{
+    width:55px;
+    height:70px;
+}
+body.one-hand-mode .conga-label{
+    font-size:0.6rem;
+}
+
+/* Timing Indicator */
+.timing-indicator{
+    position:fixed;
+    bottom:120px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:5px;
+    opacity:0;
+    transition:opacity 0.2s;
+    pointer-events:none;
+    z-index:100;
+}
+.timing-indicator.show{opacity:1}
+.timing-bar{
+    width:120px;
+    height:8px;
+    background:rgba(255,255,255,0.1);
+    border-radius:4px;
+    position:relative;
+    overflow:hidden;
+}
+.timing-marker{
+    position:absolute;
+    top:0;
+    width:4px;
+    height:100%;
+    background:var(--gold);
+    border-radius:2px;
+    transition:left 0.05s linear;
+}
+.timing-zone{
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:30px;
+    height:100%;
+    background:rgba(50,205,50,0.3);
+    border-radius:4px;
+}
+.timing-label{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.7rem;
+    color:var(--cream);
+    opacity:0.6;
+    letter-spacing:1px;
+}
+
+/* Reset Button */
+.reset-btn{
+    width:100%;
+    padding:15px;
+    border:2px solid #FF6B35;
+    border-radius:12px;
+    background:transparent;
+    color:#FF6B35;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1rem;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:all 0.3s;
+    margin-top:10px;
+}
+.reset-btn:active{
+    background:rgba(255,107,53,0.2);
+    transform:scale(0.98);
+}
+
+/* Confirm Modal */
+.confirm-modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:500;
+}
+.confirm-modal.show{display:flex}
+.confirm-box{
+    background:#1a1a2e;
+    border:2px solid var(--gold);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    max-width:300px;
+}
+.confirm-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.5rem;
+    color:var(--gold);
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+.confirm-text{
+    font-size:0.9rem;
+    color:var(--cream);
+    margin-bottom:25px;
+    line-height:1.5;
+}
+.confirm-buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+.confirm-btn{
+    padding:12px 25px;
+    border-radius:25px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1rem;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:all 0.3s;
+}
+.confirm-btn.cancel{
+    background:transparent;
+    border:2px solid rgba(255,255,255,0.3);
+    color:var(--cream);
+}
+.confirm-btn.danger{
+    background:linear-gradient(135deg,#FF6B35,#FF1493);
+    border:none;
+    color:white;
+}
+.confirm-btn:active{transform:scale(0.95)}
+
+/* Stats Button - in header */
+.stats-btn{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:2px solid rgba(255,215,0,0.3);
+    background:rgba(0,0,0,0.3);
+    color:var(--gold);
+    font-size:1rem;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all 0.3s;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+    user-select:none;
+    z-index:10;
+    position:relative;
+}
+.stats-btn:active{transform:scale(0.9);background:rgba(255,215,0,0.2)}
+.stats-btn:hover{
+    border-color:var(--gold);
+    box-shadow:0 0 15px rgba(255,215,0,0.3);
+}
+
+/* Stats Panel */
+.stats-panel{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.98);
+    z-index:100000;
+    display:none;
+    flex-direction:column;
+    padding:20px;
+    overflow-y:auto;
+}
+.stats-panel.show{display:flex}
+.stats-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+.stats-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.8rem;
+    color:var(--gold);
+    letter-spacing:3px;
+}
+.stats-close{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:2px solid #FFD700;
+    background:rgba(45,27,78,0.95);
+    color:#FFD700;
+    font-size:1.8rem;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    box-shadow:0 0 15px rgba(255,215,0,0.4);
+}
+.stats-close:active{
+    background:rgba(255,215,0,0.3);
+    transform:scale(0.9);
+}
+
+/* Rank Progress Section */
+.rank-section{
+    background:rgba(255,255,255,0.05);
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+}
+.rank-section-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1rem;
+    color:var(--cream);
+    opacity:0.7;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+.current-rank{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+}
+.rank-icon-large{
+    font-size:3rem;
+    filter:drop-shadow(0 0 10px rgba(255,215,0,0.5));
+}
+.rank-info{
+    flex:1;
+}
+.rank-name{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.5rem;
+    color:var(--gold);
+    letter-spacing:2px;
+}
+.rank-xp{
+    font-size:0.85rem;
+    color:var(--cream);
+    opacity:0.7;
+}
+.rank-progress-bar{
+    height:8px;
+    background:rgba(255,255,255,0.1);
+    border-radius:4px;
+    overflow:hidden;
+    margin-top:10px;
+}
+.rank-progress-fill{
+    height:100%;
+    background:linear-gradient(90deg,var(--gold),var(--orange));
+    border-radius:4px;
+    transition:width 0.5s ease-out;
+}
+
+/* Stats Grid */
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-bottom:20px;
+}
+.stat-card{
+    background:rgba(255,255,255,0.05);
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+}
+.stat-value{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2rem;
+    color:var(--gold);
+    letter-spacing:1px;
+}
+.stat-label{
+    font-size:0.7rem;
+    color:var(--cream);
+    opacity:0.6;
+    letter-spacing:1px;
+    margin-top:5px;
+}
+
+/* Weekly Stats */
+.weekly-section{
+    background:rgba(0,217,217,0.1);
+    border:1px solid rgba(0,217,217,0.3);
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+}
+.weekly-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1rem;
+    color:var(--tropical-teal);
+    letter-spacing:2px;
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.weekly-stat{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px 0;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.weekly-stat:last-child{border-bottom:none}
+.weekly-stat-label{
+    font-size:0.85rem;
+    color:var(--cream);
+    opacity:0.8;
+}
+.weekly-stat-value{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.1rem;
+    color:var(--tropical-teal);
+}
+
+/* Achievements Section */
+.achievements-section{
+    background:rgba(255,255,255,0.05);
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+}
+.achievements-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+.achievement{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:12px 8px;
+    background:rgba(0,0,0,0.3);
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.1);
+    transition:all 0.3s;
+}
+.achievement.unlocked{
+    border-color:var(--gold);
+    background:rgba(255,215,0,0.1);
+}
+.achievement.locked{
+    opacity:0.4;
+    filter:grayscale(1);
+}
+.achievement-icon{
+    font-size:1.8rem;
+    margin-bottom:5px;
+}
+.achievement-name{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.65rem;
+    color:var(--cream);
+    letter-spacing:1px;
+    text-align:center;
+}
+.achievement.unlocked .achievement-name{color:var(--gold)}
+
+/* New Achievement Popup */
+.achievement-popup{
+    position:fixed;
+    top:80px;
+    left:50%;
+    transform:translateX(-50%) translateY(-100px);
+    background:linear-gradient(135deg,rgba(255,215,0,0.9),rgba(255,107,53,0.9));
+    border-radius:15px;
+    padding:15px 25px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    z-index:500;
+    opacity:0;
+    transition:all 0.5s ease-out;
+    box-shadow:0 10px 40px rgba(255,215,0,0.4);
+}
+.achievement-popup.show{
+    transform:translateX(-50%) translateY(0);
+    opacity:1;
+}
+.achievement-popup-icon{font-size:2rem}
+.achievement-popup-text{
+    font-family:'Bebas Neue',sans-serif;
+    color:var(--warm-black);
+}
+.achievement-popup-title{
+    font-size:0.7rem;
+    opacity:0.8;
+    letter-spacing:1px;
+}
+.achievement-popup-name{
+    font-size:1.2rem;
+    letter-spacing:2px;
+}
+.footer{
+    text-align:center;
+    padding:20px 0;
+    border-top:1px solid rgba(255,255,255,0.1);
+    margin-top:20px;
+}
+.footer-text{
+    font-size:0.7rem;
+    color:var(--cream);
+    opacity:0.4;
+    letter-spacing:1px;
+}
+.footer-text a{
+    color:var(--gold);
+    text-decoration:none;
+}
+.powered-by{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:10px;
+    padding:8px 16px;
+    background:rgba(255,215,0,0.08);
+    border:1px solid rgba(255,215,0,0.15);
+    border-radius:20px;
+}
+.powered-dot{
+    width:6px;
+    height:6px;
+    background:var(--gold);
+    border-radius:50%;
+    animation:pulse 1s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:0.3;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
+.powered-text{
+    font-size:0.6rem;
+    color:var(--cream);
+    opacity:0.6;
+    letter-spacing:1px;
+}
+.powered-text span{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.8rem;
+    color:var(--gold);
+    letter-spacing:2px;
+}
+
+/* 5 Tappable Congas - Diamond Layout */
+.conga-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:repeat(3,1fr);
+    gap:8px;
+    padding:15px;
+    width:280px;
+    height:280px;
+    margin:0 auto;
+    position:relative;
+}
+.tap-conga{
+    width:70px;
+    height:90px;
+    background:linear-gradient(180deg,#8B6914 0%,#6B4E0A 50%,#4A3506 100%);
+    border-radius:40% 40% 35% 35% / 25% 25% 40% 40%;
+    position:relative;
+    opacity:0.8;
+    transition:all 0.15s;
+    box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), inset 0 2px 5px rgba(255,255,255,0.1), 0 4px 12px rgba(0,0,0,0.4);
+    cursor:pointer;
+    border:none;
+    outline:none;
+    -webkit-tap-highlight-color:transparent;
+    justify-self:center;
+    align-self:center;
+}
+/* Unique colors per conga */
+.tap-conga:nth-child(1){grid-area:1/1;--conga-color:#FFD700;--conga-glow:rgba(255,215,0,0.6)}
+.tap-conga:nth-child(2){grid-area:1/3;--conga-color:#FF6B35;--conga-glow:rgba(255,107,53,0.6)}
+.tap-conga:nth-child(3){grid-area:2/2;--conga-color:#FF1493;--conga-glow:rgba(255,20,147,0.6)}
+.tap-conga:nth-child(4){grid-area:3/1;--conga-color:#00D9D9;--conga-glow:rgba(0,217,217,0.6)}
+.tap-conga:nth-child(5){grid-area:3/3;--conga-color:#9B59B6;--conga-glow:rgba(155,89,182,0.6)}
+/* Subtle idle glow per conga */
+.tap-conga:nth-child(1){box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 15px rgba(255,215,0,0.2), 0 4px 12px rgba(0,0,0,0.4)}
+.tap-conga:nth-child(2){box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 15px rgba(255,107,53,0.2), 0 4px 12px rgba(0,0,0,0.4)}
+.tap-conga:nth-child(3){box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 15px rgba(255,20,147,0.2), 0 4px 12px rgba(0,0,0,0.4)}
+.tap-conga:nth-child(4){box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 15px rgba(0,217,217,0.2), 0 4px 12px rgba(0,0,0,0.4)}
+.tap-conga:nth-child(5){box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 15px rgba(155,89,182,0.2), 0 4px 12px rgba(0,0,0,0.4)}
+.tap-conga::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    height:28%;
+    background:linear-gradient(180deg,#D4BC8A 0%,#B8A070 100%);
+    border-radius:50%;
+    box-shadow:inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2);
+    pointer-events:none;
+}
+.tap-conga::after{
+    content:'';
+    position:absolute;
+    top:6%;
+    left:50%;
+    transform:translateX(-50%);
+    width:60%;
+    height:12%;
+    background:radial-gradient(ellipse,rgba(255,255,255,0.4) 0%,transparent 70%);
+    border-radius:50%;
+    pointer-events:none;
+}
+/* Tapped state with unique color */
+.tap-conga.tapped{
+    opacity:1;
+    transform:scale(1.15) translateY(-4px);
+    box-shadow:0 0 40px var(--conga-glow), 0 0 60px var(--conga-glow), 0 8px 20px rgba(0,0,0,0.4);
+}
+.tap-conga.lit{
+    opacity:1;
+    transform:scale(1.2) translateY(-5px);
+    background:linear-gradient(180deg,#FFD700 0%,#FF8C42 50%,#E65C00 100%);
+    box-shadow:0 0 30px var(--gold), 0 0 50px var(--orange), 0 8px 20px rgba(255,107,53,0.6);
+}
+.tap-conga.lit::before{
+    background:linear-gradient(180deg,#FFF8E7 0%,#FFE4A0 100%);
+    box-shadow:0 0 15px rgba(255,215,0,0.5);
+}
+/* Color burst ring animation */
+.color-burst{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    border:3px solid var(--burst-color,#FFD700);
+    opacity:1;
+    animation:burstRing 0.5s ease-out forwards;
+    pointer-events:none;
+}
+@keyframes burstRing{
+    0%{width:20px;height:20px;opacity:1}
+    100%{width:150px;height:150px;opacity:0}
+}
+/* Spark particles */
+.spark{
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    pointer-events:none;
+    animation:sparkFly 0.6s ease-out forwards;
+}
+@keyframes sparkFly{
+    0%{opacity:1;transform:translate(0,0) scale(1)}
+    100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0)}
+}
+/* Callout popup */
+.callout{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.8rem;
+    letter-spacing:3px;
+    color:var(--gold);
+    text-shadow:0 0 20px var(--gold), 0 0 40px var(--orange);
+    pointer-events:none;
+    animation:calloutPop 0.8s ease-out forwards;
+    z-index:100;
+    white-space:nowrap;
+}
+@keyframes calloutPop{
+    0%{opacity:0;transform:translate(-50%,-50%) scale(0.5)}
+    20%{opacity:1;transform:translate(-50%,-50%) scale(1.2)}
+    40%{transform:translate(-50%,-50%) scale(1)}
+    100%{opacity:0;transform:translate(-50%,-80%) scale(1)}
+}
+.tap-conga.hit-correct{
+    animation:hitCorrect 0.2s ease-out;
+}
+.tap-conga.hit-wrong{
+    animation:hitWrong 0.3s ease-out;
+}
+@keyframes hitCorrect{
+    0%{transform:scale(1.2) translateY(-5px)}
+    50%{transform:scale(1.4) translateY(-10px)}
+    100%{transform:scale(1.2) translateY(-5px)}
+}
+@keyframes hitWrong{
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-6px)}
+    40%{transform:translateX(6px)}
+    60%{transform:translateX(-4px)}
+    80%{transform:translateX(4px)}
+}
+.tap-conga:active{
+    transform:scale(0.95);
+}
+
+/* Conga labels */
+.conga-label{
+    position:absolute;
+    bottom:-20px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.7rem;
+    color:var(--cream);
+    opacity:0.4;
+    letter-spacing:1px;
+}
+
+.tap-conga:active{
+    transform:scale(0.95);
+}
+
+/* Conga labels */
+.conga-label{
+    position:absolute;
+    bottom:-20px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.7rem;
+    color:var(--cream);
+    opacity:0.4;
+    letter-spacing:1px;
+}
+
+/* Instructions overlay */
+.instructions{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:linear-gradient(180deg,#1a0a2e 0%,#2D1B4E 50%,#1a0a2e 100%);
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    z-index:100000;
+    padding:15px;
+    padding-top:env(safe-area-inset-top, 15px);
+    overflow-y:auto;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.3s;
+}
+.instructions.show{opacity:1;pointer-events:auto}
+.instructions-card{
+    background:rgba(0,0,0,0.5);
+    border:2px solid var(--gold);
+    border-radius:20px;
+    padding:20px 18px;
+    width:100%;
+    max-width:340px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(255,215,0,0.15);
+    margin:auto;
+}
+
+/* Language Toggle */
+.lang-toggle{
+    display:flex;
+    justify-content:center;
+    gap:0;
+    margin-bottom:15px;
+}
+.lang-btn{
+    padding:10px 24px;
+    border:2px solid var(--gold);
+    background:transparent;
+    color:var(--gold);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1rem;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:all 0.2s;
+    -webkit-tap-highlight-color:transparent;
+}
+.lang-btn:first-child{border-radius:25px 0 0 25px;border-right:none}
+.lang-btn:last-child{border-radius:0 25px 25px 0}
+.lang-btn.active{
+    background:var(--gold);
+    color:var(--warm-black);
+}
+
+/* Intro Header */
+.intro-flag{
+    font-size:3rem;
+    margin-bottom:8px;
+    line-height:1;
+}
+.intro-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2rem;
+    background:linear-gradient(135deg,var(--gold),var(--orange),var(--hot-pink));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    letter-spacing:2px;
+    margin-bottom:3px;
+    line-height:1.1;
+}
+.intro-subtitle{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.9rem;
+    color:var(--tropical-teal);
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+/* Instructions Content */
+.instructions-content{
+    display:none;
+}
+.instructions-content.active{
+    display:block;
+}
+.instructions-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.2rem;
+    color:var(--gold);
+    letter-spacing:2px;
+    margin-bottom:12px;
+    border-bottom:1px solid rgba(255,215,0,0.2);
+    padding-bottom:10px;
+}
+.instructions-text{
+    font-size:0.85rem;
+    color:var(--cream);
+    line-height:1.6;
+    margin-bottom:18px;
+    text-align:left;
+    padding:0 5px;
+}
+.instructions-step{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:12px;
+}
+.instructions-step:last-child{margin-bottom:0}
+.instructions-step .emoji{
+    font-size:1.3rem;
+    flex-shrink:0;
+}
+.instructions-step .text{
+    flex:1;
+}
+.instructions-text .highlight{
+    color:var(--gold);
+    font-weight:bold;
+}
+.instructions-btn{
+    padding:14px 45px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,var(--gold),var(--orange));
+    color:var(--warm-black);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.1rem;
+    letter-spacing:2px;
+    cursor:pointer;
+    box-shadow:0 4px 20px rgba(255,215,0,0.3);
+    -webkit-tap-highlight-color:transparent;
+    transition:transform 0.2s;
+    width:100%;
+    max-width:200px;
+}
+.instructions-btn:active{transform:scale(0.95)}
+
+@media(min-width:400px){
+    .hero-title{font-size:3.5rem}
+    .conga-row{width:320px;height:320px}
+    .tap-conga{width:80px;height:100px}
+}
+
+/* Screen shake */
+@keyframes shake{
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-8px) rotate(-1deg)}
+    40%{transform:translateX(8px) rotate(1deg)}
+    60%{transform:translateX(-6px) rotate(-0.5deg)}
+    80%{transform:translateX(6px) rotate(0.5deg)}
+}
+.shake{animation:shake 0.4s ease-out}
+
+/* Confetti */
+.confetti-container{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:200;
+    overflow:hidden;
+}
+.confetti{
+    position:absolute;
+    width:10px;
+    height:10px;
+    opacity:0;
+}
+@keyframes confettiFall{
+    0%{transform:translateY(-100px) rotate(0deg) scale(1);opacity:1}
+    100%{transform:translateY(100vh) rotate(720deg) scale(0.5);opacity:0}
+}
+
+/* Tap particles */
+.tap-particle{
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:50;
+}
+@keyframes particleBurst{
+    0%{transform:translate(-50%,-50%) scale(1);opacity:1}
+    100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0}
+}
+
+/* Streak fire effect */
+.streak-fire{
+    position:absolute;
+    bottom:100%;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:1.5rem;
+    opacity:0;
+    pointer-events:none;
+    animation:none;
+}
+.streak-fire.show{
+    animation:fireRise 0.6s ease-out forwards;
+}
+@keyframes fireRise{
+    0%{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}
+    100%{opacity:0;transform:translateX(-50%) translateY(-40px) scale(1.5)}
+}
+
+/* Milestone popup */
+.milestone{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2.5rem;
+    letter-spacing:4px;
+    color:var(--gold);
+    text-shadow:0 0 30px var(--gold),0 0 60px var(--orange);
+    z-index:150;
+    pointer-events:none;
+    white-space:nowrap;
+}
+.milestone.show{
+    animation:milestonePopup 1s ease-out forwards;
+}
+@keyframes milestonePopup{
+    0%{transform:translate(-50%,-50%) scale(0);opacity:0}
+    20%{transform:translate(-50%,-50%) scale(1.3);opacity:1}
+    40%{transform:translate(-50%,-50%) scale(1);opacity:1}
+    100%{transform:translate(-50%,-50%) scale(1.5);opacity:0}
+}
+
+/* Beat pulse on container */
+.game-area.beat-pulse{
+    animation:beatPulse 0.1s ease-out;
+}
+@keyframes beatPulse{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.02)}
+    100%{transform:scale(1)}
+}
+</style>
+</head>
+<body>
+
+<!-- Fixed Header Buttons (right corner) -->
+<div id="fixedHeaderBtns" style="position:fixed;top:12px;right:15px;display:flex;gap:12px;z-index:99999;">
+    <a href="javascript:void(0)" id="statsBtn" onclick="var sp=document.getElementById('statsPanel');var se=document.getElementById('settingsPanel');se.classList.remove('show');sp.classList.toggle('show');return false;" style="width:50px;height:50px;border-radius:50%;border:3px solid #FFD700;background:rgba(45,27,78,0.95);color:#FFD700;font-size:1.4rem;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 0 15px rgba(255,215,0,0.4);">📊</a>
+    <a href="javascript:void(0)" id="settingsBtn" onclick="var sp=document.getElementById('statsPanel');var se=document.getElementById('settingsPanel');sp.classList.remove('show');se.classList.toggle('show');return false;" style="width:50px;height:50px;border-radius:50%;border:3px solid #FFD700;background:rgba(45,27,78,0.95);color:#FFD700;font-size:1.4rem;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 0 15px rgba(255,215,0,0.4);">⚙️</a>
+</div>
+
+<div class="confetti-container" id="confettiContainer"></div>
+<div class="milestone" id="milestone"></div>
+
+<!-- Stats Panel -->
+<div class="stats-panel" id="statsPanel">
+    <div class="stats-header">
+        <div class="stats-title">📊 TU PROGRESO</div>
+        <a href="#" class="stats-close" id="statsClose" onclick="this.closest('.stats-panel').classList.remove('show');return false;">✕</a>
+    </div>
+    
+    <!-- Rank Section -->
+    <div class="rank-section">
+        <div class="rank-section-title">🏆 RANGO ACTUAL</div>
+        <div class="current-rank">
+            <div class="rank-icon-large" id="rankIconLarge">🥁</div>
+            <div class="rank-info">
+                <div class="rank-name" id="rankName">PRINCIPIANTE</div>
+                <div class="rank-xp" id="rankXp">0 / 100 XP</div>
+                <div class="rank-progress-bar">
+                    <div class="rank-progress-fill" id="rankProgressFill" style="width:0%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value" id="statBestStreak">0</div>
+            <div class="stat-label">BEST STREAK</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="statTotalTaps">0</div>
+            <div class="stat-label">TOTAL TAPS</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="statPerfects">0</div>
+            <div class="stat-label">PERFECTS</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="statGamesPlayed">0</div>
+            <div class="stat-label">GAMES</div>
+        </div>
+    </div>
+    
+    <!-- Weekly Stats -->
+    <div class="weekly-section">
+        <div class="weekly-title">📅 ESTA SEMANA</div>
+        <div class="weekly-stat">
+            <span class="weekly-stat-label">Taps This Week</span>
+            <span class="weekly-stat-value" id="weeklyTaps">0</span>
+        </div>
+        <div class="weekly-stat">
+            <span class="weekly-stat-label">Best Streak</span>
+            <span class="weekly-stat-value" id="weeklyBest">0</span>
+        </div>
+        <div class="weekly-stat">
+            <span class="weekly-stat-label">Sessions</span>
+            <span class="weekly-stat-value" id="weeklySessions">0</span>
+        </div>
+    </div>
+    
+    <!-- Achievements -->
+    <div class="achievements-section">
+        <div class="rank-section-title">🏅 LOGROS</div>
+        <div class="achievements-grid" id="achievementsGrid">
+            <!-- Achievements will be populated by JS -->
+        </div>
+    </div>
+</div>
+
+<!-- Achievement Popup -->
+<div class="achievement-popup" id="achievementPopup">
+    <div class="achievement-popup-icon" id="achievementPopupIcon">🏅</div>
+    <div class="achievement-popup-text">
+        <div class="achievement-popup-title">¡NUEVO LOGRO!</div>
+        <div class="achievement-popup-name" id="achievementPopupName">First Streak</div>
+    </div>
+</div>
+
+<!-- Settings Panel -->
+<div class="settings-panel" id="settingsPanel">
+    <div class="settings-header">
+        <div class="settings-title">⚙️ SETTINGS</div>
+        <a href="#" class="settings-close" id="settingsClose" onclick="this.closest('.settings-panel').classList.remove('show');return false;">✕</a>
+    </div>
+    
+    <!-- Sound Settings -->
+    <div class="settings-section">
+        <div class="settings-section-title">🔊 AUDIO</div>
+        <div class="volume-control">
+            <span class="volume-icon">🔈</span>
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
+            <span class="volume-value" id="volumeValue">70%</span>
+        </div>
+        <div class="setting-row">
+            <div>
+                <div class="setting-label">Sound Effects</div>
+                <div class="setting-desc">Conga hits & feedback sounds</div>
+            </div>
+            <div class="toggle-switch active" id="toggleSound" data-setting="sound"></div>
+        </div>
+        <div class="setting-row">
+            <div>
+                <div class="setting-label">Background Music</div>
+                <div class="setting-desc">Bomba rhythm loop</div>
+            </div>
+            <div class="toggle-switch active" id="toggleMusic" data-setting="music"></div>
+        </div>
+        <div class="setting-row">
+            <div>
+                <div class="setting-label">Coquí Chirps</div>
+                <div class="setting-desc">Perfect tap sound 🐸</div>
+            </div>
+            <div class="toggle-switch active" id="toggleCoqui" data-setting="coqui"></div>
+        </div>
+    </div>
+    
+    <!-- Haptics Settings -->
+    <div class="settings-section">
+        <div class="settings-section-title">📳 HAPTICS</div>
+        <div class="setting-row">
+            <div>
+                <div class="setting-label">Vibration</div>
+                <div class="setting-desc">Haptic feedback on taps</div>
+            </div>
+            <div class="toggle-switch active" id="toggleHaptics" data-setting="haptics"></div>
+        </div>
+    </div>
+    
+    <!-- Visual Settings -->
+    <div class="settings-section">
+        <div class="settings-section-title">✨ VISUALS</div>
+        <div class="setting-row">
+            <div>
+                <div class="setting-label">Visual Effects</div>
+                <div class="setting-desc">Particles, sparks & glows</div>
+            </div>
+            <div class="toggle-switch active" id="toggleEffects" data-setting="effects"></div>
+        </div>
+        <div class="setting-row">
+            <div>
+                <div class="setting-label">Callouts</div>
+                <div class="setting-desc">¡WEPA! ¡FUEGO! popups</div>
+            </div>
+            <div class="toggle-switch active" id="toggleCallouts" data-setting="callouts"></div>
+        </div>
+        <div class="setting-row">
+            <div>
+                <div class="setting-label">Timing Guide</div>
+                <div class="setting-desc">Show beat timing bar</div>
+            </div>
+            <div class="toggle-switch" id="toggleTiming" data-setting="timing"></div>
+        </div>
+    </div>
+    
+    <!-- Layout Settings -->
+    <div class="settings-section">
+        <div class="settings-section-title">📱 LAYOUT</div>
+        <div class="setting-row">
+            <div>
+                <div class="setting-label">One-Hand Mode</div>
+                <div class="setting-desc">Smaller drums for thumb play</div>
+            </div>
+            <div class="toggle-switch" id="toggleOneHand" data-setting="onehand"></div>
+        </div>
+    </div>
+    
+    <!-- Reset -->
+    <div class="settings-section">
+        <div class="settings-section-title">🗑️ DATA</div>
+        <button class="reset-btn" id="resetBtn">RESET ALL PROGRESS</button>
+    </div>
+</div>
+
+<!-- Confirm Modal -->
+<div class="confirm-modal" id="confirmModal">
+    <div class="confirm-box">
+        <div class="confirm-title">⚠️ RESET PROGRESS?</div>
+        <div class="confirm-text">This will delete all your stats, achievements, and rank progress. This cannot be undone!</div>
+        <div class="confirm-buttons">
+            <button class="confirm-btn cancel" id="confirmCancel">CANCEL</button>
+            <button class="confirm-btn danger" id="confirmReset">RESET</button>
+        </div>
+    </div>
+</div>
+
+<!-- Timing Indicator -->
+<div class="timing-indicator" id="timingIndicator">
+    <span class="timing-label">EARLY</span>
+    <div class="timing-bar">
+        <div class="timing-zone"></div>
+        <div class="timing-marker" id="timingMarker"></div>
+    </div>
+    <span class="timing-label">LATE</span>
+</div>
+
+<div class="bg-particles">
+    <div class="particle" style="left:5%"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+</div>
+
+<div class="container">
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <span class="logo-conga">CONGA</span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-emoji"></div>
+        <h1 class="hero-title">RITNOME CONGA</h1>
+        <p class="hero-tagline">
+            <span class="tagline-es">ENTRENA TU RITMO</span>
+            <span class="tagline-en">Train Your Rhythm</span>
+        </p>
+        <p class="hero-sub">Born in Puerto Rico 🇵🇷</p>
+        <div class="location-badge" id="locationBadge"></div>
+    </section>
+
+    <div class="game-area">
+        <div class="conga-row" id="congaRow">
+            <!-- Beat Visualizer (pulsing rings) -->
+            <div class="beat-visualizer" id="beatVisualizer"></div>
+            <button class="tap-conga" id="conga0" data-index="0">
+                <span class="conga-label">1</span>
+            </button>
+            <button class="tap-conga" id="conga1" data-index="1">
+                <span class="conga-label">2</span>
+            </button>
+            <button class="tap-conga" id="conga2" data-index="2">
+                <span class="conga-label">3</span>
+            </button>
+            <button class="tap-conga" id="conga3" data-index="3">
+                <span class="conga-label">4</span>
+            </button>
+            <button class="tap-conga" id="conga4" data-index="4">
+                <span class="conga-label">5</span>
+            </button>
+        </div>
+
+        <div class="bpm-display">
+            <div class="bpm-label">Tempo</div>
+            <div class="bpm-value"><span id="currentBpm">90</span> <span>BPM</span></div>
+        </div>
+
+        <div class="score-area">
+            <div class="score-box">
+                <div class="score-label">Streak</div>
+                <div class="score-value" id="streak">0</div>
+            </div>
+            <div class="score-box">
+                <div class="score-label">Best</div>
+                <div class="score-value" id="best">0</div>
+            </div>
+        </div>
+
+        <div class="feedback">
+            <div class="feedback-text" id="feedback"></div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <!-- Theme Selector -->
+        <div class="theme-selector">
+            <button class="theme-btn night active" data-theme="night" title="Night"></button>
+            <button class="theme-btn sunset" data-theme="sunset" title="Sunset"></button>
+            <button class="theme-btn neon" data-theme="neon" title="Neon"></button>
+            <button class="theme-btn sanjuan" data-theme="sanjuan" title="Old San Juan 🏰"></button>
+            <button class="theme-btn yunque" data-theme="yunque" title="El Yunque 🌴"></button>
+            <button class="theme-btn flamenco" data-theme="flamenco" title="Flamenco Beach 🏖️"></button>
+        </div>
+        
+        <!-- Challenge Mode Selector -->
+        <div class="mode-selector">
+            <button class="mode-option active" data-mode="freeplay">
+                <span class="mode-icon">🥁</span>
+                <span class="mode-name">FREE PLAY</span>
+            </button>
+            <button class="mode-option" data-mode="survival">
+                <span class="mode-icon">⏱️</span>
+                <span class="mode-name">SURVIVE 60</span>
+            </button>
+            <button class="mode-option" data-mode="perfect10">
+                <span class="mode-icon">🎯</span>
+                <span class="mode-name">PERFECT 10</span>
+            </button>
+            <button class="mode-option" data-mode="practice">
+                <span class="mode-icon">📚</span>
+                <span class="mode-name">PRACTICE</span>
+            </button>
+        </div>
+        
+        <div class="pattern-selector">
+            <button class="pattern-option active" data-pattern="reggaeton">REGGAETON</button>
+            <button class="pattern-option" data-pattern="bomba">BOMBA</button>
+            <button class="pattern-option" data-pattern="plena">PLENA</button>
+            <button class="pattern-option" data-pattern="salsa">SALSA</button>
+            <button class="pattern-option" data-pattern="clave">CLAVE</button>
+            <button class="pattern-option" data-pattern="merengue">MERENGUE</button>
+        </div>
+        <div class="bpm-selector">
+            <button class="bpm-option" data-bpm="60">60</button>
+            <button class="bpm-option active" data-bpm="90">90</button>
+            <button class="bpm-option" data-bpm="120">120</button>
+        </div>
+        <button class="start-btn" id="startBtn">🥁 START</button>
+    </div>
+    
+    <!-- Challenge Timer -->
+    <div class="challenge-timer" id="challengeTimer">60</div>
+    
+    <!-- Challenge Goal -->
+    <div class="challenge-goal" id="challengeGoal">
+        PERFECT: <span class="goal-progress" id="goalProgress">0/10</span>
+    </div>
+    
+    <!-- Challenge Complete Modal -->
+    <div class="challenge-complete" id="challengeComplete">
+        <div class="challenge-result" id="challengeResult">¡GANASTE!</div>
+        <div class="challenge-stats" id="challengeStats">Final Streak: 25</div>
+        <button class="challenge-retry-btn" id="retryBtn">¡OTRA VEZ!</button>
+    </div>
+    
+    <!-- Practice Mode Indicator -->
+    <div class="practice-indicator" id="practiceIndicator">📚 PRACTICE MODE - NO SCORING</div>
+    
+    <!-- Countdown Overlay -->
+    <div class="countdown-overlay" id="countdownOverlay">
+        <div class="countdown-number" id="countdownNumber">3</div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer-text">© 2025 <a href="https://gostar.digital">GoStar Digital LLC</a> 🇵🇷</p>
+        <div class="powered-by">
+            <div class="powered-dot"></div>
+            <div class="powered-text">Powered by <span>RITNOME™</span></div>
+        </div>
+    </footer>
+</div>
+
+<div class="instructions" id="instructions">
+    <div class="instructions-card">
+        <!-- Language Toggle -->
+        <div class="lang-toggle">
+            <button class="lang-btn active" id="langEs" onclick="document.getElementById('contentEs').classList.add('active');document.getElementById('contentEn').classList.remove('active');this.classList.add('active');document.getElementById('langEn').classList.remove('active');">🇵🇷 ES</button>
+            <button class="lang-btn" id="langEn" onclick="document.getElementById('contentEn').classList.add('active');document.getElementById('contentEs').classList.remove('active');this.classList.add('active');document.getElementById('langEs').classList.remove('active');">🇺🇸 EN</button>
+        </div>
+        
+        <!-- Header -->
+        <div class="intro-flag">🥁</div>
+        <div class="intro-title">RITNOME CONGA</div>
+        <div class="intro-subtitle">ENTRENA TU RITMO</div>
+        
+        <!-- Spanish Content (Primary) -->
+        <div class="instructions-content active" id="contentEs">
+            <div class="instructions-title">¿CÓMO SE JUEGA?</div>
+            <div class="instructions-text">
+                <div class="instructions-step">
+                    <span class="emoji">👆</span>
+                    <span class="text">Toca la conga que <span class="highlight">BRILLA</span> ¡en el tiempo correcto!</span>
+                </div>
+                <div class="instructions-step">
+                    <span class="emoji">👀</span>
+                    <span class="text">Mira cuál tambor se ilumina — ¡tócalo al ritmo!</span>
+                </div>
+                <div class="instructions-step">
+                    <span class="emoji">🔥</span>
+                    <span class="text">Construye tu racha. Siente el ritmo. ¡Entrena como un boricua! 🇵🇷</span>
+                </div>
+            </div>
+            <button class="instructions-btn" id="gotItBtn">¡PA'LANTE!</button>
+        </div>
+        
+        <!-- English Content -->
+        <div class="instructions-content" id="contentEn">
+            <div class="instructions-title">HOW TO PLAY</div>
+            <div class="instructions-text">
+                <div class="instructions-step">
+                    <span class="emoji">👆</span>
+                    <span class="text">Tap the <span class="highlight">GLOWING</span> conga on the beat!</span>
+                </div>
+                <div class="instructions-step">
+                    <span class="emoji">👀</span>
+                    <span class="text">Watch which drum lights up — tap it in time!</span>
+                </div>
+                <div class="instructions-step">
+                    <span class="emoji">🔥</span>
+                    <span class="text">Build your streak. Feel the rhythm. Train like a boricua! 🇵🇷</span>
+                </div>
+            </div>
+            <button class="instructions-btn" id="gotItBtnEn">LET'S GO!</button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(){
+    var startBtn = document.getElementById('startBtn');
+    var feedback = document.getElementById('feedback');
+    var streakEl = document.getElementById('streak');
+    var bestEl = document.getElementById('best');
+    var currentBpmEl = document.getElementById('currentBpm');
+    var instructions = document.getElementById('instructions');
+    var gotItBtn = document.getElementById('gotItBtn');
+    var gotItBtnEn = document.getElementById('gotItBtnEn');
+    var bpmOptions = document.querySelectorAll('.bpm-option');
+    var patternOptions = document.querySelectorAll('.pattern-option');
+    var congaRow = document.getElementById('congaRow');
+    var confettiContainer = document.getElementById('confettiContainer');
+    var milestone = document.getElementById('milestone');
+    var gameArea = document.querySelector('.game-area');
+    var tapCongas = [
+        document.getElementById('conga0'),
+        document.getElementById('conga1'),
+        document.getElementById('conga2'),
+        document.getElementById('conga3'),
+        document.getElementById('conga4')
+    ];
+    
+    // Helper for touch-friendly button handlers
+    function addTapHandler(element, callback) {
+        if (!element) return;
+        
+        var touchMoved = false;
+        
+        element.addEventListener('touchstart', function(e) {
+            touchMoved = false;
+        }, { passive: true });
+        
+        element.addEventListener('touchmove', function(e) {
+            touchMoved = true;
+        }, { passive: true });
+        
+        element.addEventListener('touchend', function(e) {
+            if (!touchMoved) {
+                e.preventDefault();
+                callback();
+            }
+        }, { passive: false });
+        
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            callback();
+        });
+    }
+    
+    // Rhythm patterns - ONE conga per beat (index 0-4)
+    var rhythmPatterns = {
+        // Reggaeton dembow - bouncy feel
+        reggaeton: [0, 2, 4, 2, 1, 3, 4, 3, 0, 2, 4, 2, 1, 3, 0, 3],
+        // Classic clave - 3-2 son clave pattern
+        clave: [0, 4, 2, 0, 3, 1, 4, 2, 0, 4, 2, 0, 3, 1, 4, 2],
+        // Bomba sicá - Puerto Rican traditional
+        bomba: [0, 2, 4, 1, 3, 0, 4, 2, 1, 3, 0, 2, 4, 3, 1, 0],
+        // Plena - Puerto Rican folk rhythm 🇵🇷
+        plena: [2, 0, 2, 4, 2, 0, 2, 4, 1, 3, 1, 3, 2, 0, 4, 2],
+        // Salsa montuno - piano-inspired
+        salsa: [2, 0, 4, 1, 3, 2, 0, 4, 3, 1, 2, 4, 0, 3, 1, 2],
+        // Merengue - Dominican/PR fusion
+        merengue: [0, 2, 0, 2, 4, 2, 4, 2, 1, 3, 1, 3, 0, 4, 0, 4]
+    };
+    var currentPattern = 'reggaeton';
+    var patternIndex = 0;
+    var currentlyLit = -1; // Which conga is lit (-1 = none)
+    var tappedThisBeat = false; // Has player tapped this beat
+
+    var bpm = 90;
+    var beatInterval = null;
+    var isPlaying = false;
+    var beatIndex = 0;
+    var lastBeatTime = 0;
+    var streak = 0;
+    var best = parseInt(localStorage.getItem('conga-best')) || 0;
+    var feedbackTimeout = null;
+    var audioCtx = null;
+
+    bestEl.textContent = best;
+
+    // Always show instructions on page load
+    instructions.classList.add('show');
+
+    function closeInstructions() {
+        instructions.classList.remove('show');
+        localStorage.setItem('conga-seen', 'true');
+    }
+    
+    gotItBtn.onclick = closeInstructions;
+    gotItBtnEn.onclick = closeInstructions;
+
+    // BPM selection
+    bpmOptions.forEach(function(btn) {
+        btn.onclick = function() {
+            if (isPlaying) return;
+            bpmOptions.forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            bpm = parseInt(btn.dataset.bpm);
+            currentBpmEl.textContent = bpm;
+        };
+    });
+
+    // Pattern selection
+    patternOptions.forEach(function(btn) {
+        btn.onclick = function() {
+            if (isPlaying) return;
+            patternOptions.forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            currentPattern = btn.dataset.pattern;
+        };
+    });
+
+    // ============ PHASE 4: CHALLENGE MODE SYSTEM ============
+    
+    var currentMode = 'freeplay';
+    var modeOptions = document.querySelectorAll('.mode-option');
+    var challengeTimer = document.getElementById('challengeTimer');
+    var challengeGoal = document.getElementById('challengeGoal');
+    var goalProgress = document.getElementById('goalProgress');
+    var challengeComplete = document.getElementById('challengeComplete');
+    var challengeResult = document.getElementById('challengeResult');
+    var challengeStats = document.getElementById('challengeStats');
+    var retryBtn = document.getElementById('retryBtn');
+    var practiceIndicator = document.getElementById('practiceIndicator');
+    var countdownOverlay = document.getElementById('countdownOverlay');
+    var countdownNumber = document.getElementById('countdownNumber');
+    
+    var challengeTimerInterval = null;
+    var challengeTimeLeft = 60;
+    var perfectCount = 0;
+    var isPracticeMode = false;
+    
+    // Mode selector handlers
+    modeOptions.forEach(function(btn) {
+        btn.onclick = function() {
+            if (isPlaying) return;
+            modeOptions.forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            currentMode = btn.dataset.mode;
+            
+            // Update UI based on mode
+            updateModeUI();
+        };
+    });
+    
+    function updateModeUI() {
+        // Reset UI elements
+        challengeTimer.classList.remove('show', 'warning', 'critical');
+        challengeGoal.classList.remove('show');
+        practiceIndicator.classList.remove('show');
+        
+        // Update start button text
+        switch(currentMode) {
+            case 'survival':
+                startBtn.textContent = '⏱️ SURVIVE 60';
+                break;
+            case 'perfect10':
+                startBtn.textContent = '🎯 PERFECT 10';
+                break;
+            case 'practice':
+                startBtn.textContent = '📚 PRACTICE';
+                break;
+            default:
+                startBtn.textContent = '🥁 START';
+        }
+    }
+    
+    // Countdown before game starts
+    function showCountdown(callback) {
+        var count = 3;
+        countdownOverlay.classList.add('show');
+        countdownNumber.textContent = count;
+        
+        var countInterval = setInterval(function() {
+            count--;
+            if (count > 0) {
+                countdownNumber.textContent = count;
+                countdownNumber.style.animation = 'none';
+                void countdownNumber.offsetWidth;
+                countdownNumber.style.animation = 'countdownPop 0.8s ease-out';
+                // Play countdown sound
+                playCongaHit(2, 'good');
+            } else if (count === 0) {
+                countdownNumber.textContent = '¡DALE!';
+                countdownNumber.style.animation = 'none';
+                void countdownNumber.offsetWidth;
+                countdownNumber.style.animation = 'countdownPop 0.8s ease-out';
+                playCongaRoll();
+            } else {
+                clearInterval(countInterval);
+                countdownOverlay.classList.remove('show');
+                if (callback) callback();
+            }
+        }, 1000);
+    }
+    
+    // Challenge timer update
+    function updateChallengeTimer() {
+        challengeTimeLeft--;
+        challengeTimer.textContent = challengeTimeLeft;
+        
+        // Warning states
+        if (challengeTimeLeft <= 10) {
+            challengeTimer.classList.add('critical');
+            challengeTimer.classList.remove('warning');
+        } else if (challengeTimeLeft <= 20) {
+            challengeTimer.classList.add('warning');
+        }
+        
+        // Time's up
+        if (challengeTimeLeft <= 0) {
+            endChallenge(true);
+        }
+    }
+    
+    // Start challenge mode
+    function startChallenge() {
+        switch(currentMode) {
+            case 'survival':
+                // Survive 60 seconds
+                challengeTimeLeft = 60;
+                challengeTimer.textContent = challengeTimeLeft;
+                challengeTimer.classList.add('show');
+                challengeTimer.classList.remove('warning', 'critical');
+                challengeTimerInterval = setInterval(updateChallengeTimer, 1000);
+                break;
+                
+            case 'perfect10':
+                // Get 10 perfect taps
+                perfectCount = 0;
+                goalProgress.textContent = '0/10';
+                challengeGoal.classList.add('show');
+                break;
+                
+            case 'practice':
+                // Practice mode - no scoring, slower
+                isPracticeMode = true;
+                practiceIndicator.classList.add('show');
+                break;
+        }
+    }
+    
+    // End challenge
+    function endChallenge(survived) {
+        clearInterval(challengeTimerInterval);
+        challengeTimerInterval = null;
+        
+        // Stop game
+        isPlaying = false;
+        clearInterval(beatInterval);
+        beatInterval = null;
+        stopBombaLoop();
+        
+        // Show results
+        if (currentMode === 'survival') {
+            if (survived && challengeTimeLeft <= 0) {
+                // Won!
+                challengeResult.textContent = '¡SOBREVIVISTE! 🏆';
+                challengeResult.className = 'challenge-result win';
+                playCongaRoll();
+                setTimeout(playCongaRoll, 300);
+                launchConfetti();
+                launchConfetti();
+                trackSurvivalWin(); // Track for stats & achievements
+            } else {
+                // Lost
+                challengeResult.textContent = '¡CASI! 💪';
+                challengeResult.className = 'challenge-result lose';
+            }
+            challengeStats.textContent = 'Final Streak: ' + streak + ' | Best: ' + best;
+        } else if (currentMode === 'perfect10') {
+            if (perfectCount >= 10) {
+                challengeResult.textContent = '¡PERFECTO! 🎯';
+                challengeResult.className = 'challenge-result win';
+                playCongaRoll();
+                launchConfetti();
+            } else {
+                challengeResult.textContent = '¡SIGUE INTENTANDO!';
+                challengeResult.className = 'challenge-result lose';
+            }
+            challengeStats.textContent = 'Perfect Taps: ' + perfectCount + '/10';
+        }
+        
+        challengeComplete.classList.add('show');
+        
+        // Reset UI
+        startBtn.textContent = '🥁 START';
+        startBtn.classList.remove('playing');
+        bpmOptions.forEach(function(b) { b.style.pointerEvents = 'auto'; b.style.opacity = '1'; });
+        patternOptions.forEach(function(b) { b.style.pointerEvents = 'auto'; b.style.opacity = '1'; });
+        modeOptions.forEach(function(b) { b.style.pointerEvents = 'auto'; b.style.opacity = '1'; });
+        tapCongas.forEach(function(c) { c.classList.remove('lit'); });
+        challengeTimer.classList.remove('show');
+        challengeGoal.classList.remove('show');
+        practiceIndicator.classList.remove('show');
+        setOnFire(false);
+    }
+    
+    // Track perfect taps for Perfect 10 mode
+    function trackPerfect() {
+        if (currentMode === 'perfect10') {
+            perfectCount++;
+            goalProgress.textContent = perfectCount + '/10';
+            
+            if (perfectCount >= 10) {
+                endChallenge(true);
+            }
+        }
+    }
+    
+    // Check if player lost in survival mode (missed too many)
+    function checkSurvivalFail() {
+        if (currentMode === 'survival' && streak === 0 && isPlaying) {
+            // Give player 3 misses before game over
+            // Actually, let's just continue - survival means survive the time
+        }
+    }
+    
+    // Retry button
+    addTapHandler(retryBtn, function() {
+        challengeComplete.classList.remove('show');
+        updateModeUI();
+    });
+
+    // ============ PHASE 5: PROGRESS & REWARDS SYSTEM ============
+    
+    // Stats Panel Elements
+    var statsBtn = document.getElementById('statsBtn');
+    var statsPanel = document.getElementById('statsPanel');
+    var statsClose = document.getElementById('statsClose');
+    var rankIconLarge = document.getElementById('rankIconLarge');
+    var rankName = document.getElementById('rankName');
+    var rankXp = document.getElementById('rankXp');
+    var rankProgressFill = document.getElementById('rankProgressFill');
+    var statBestStreak = document.getElementById('statBestStreak');
+    var statTotalTaps = document.getElementById('statTotalTaps');
+    var statPerfects = document.getElementById('statPerfects');
+    var statGamesPlayed = document.getElementById('statGamesPlayed');
+    var weeklyTaps = document.getElementById('weeklyTaps');
+    var weeklyBest = document.getElementById('weeklyBest');
+    var weeklySessions = document.getElementById('weeklySessions');
+    var achievementsGrid = document.getElementById('achievementsGrid');
+    var achievementPopup = document.getElementById('achievementPopup');
+    var achievementPopupIcon = document.getElementById('achievementPopupIcon');
+    var achievementPopupName = document.getElementById('achievementPopupName');
+    
+    // Rank definitions
+    var ranks = [
+        { name: 'PRINCIPIANTE', icon: '🥁', xpRequired: 0 },
+        { name: 'RÍTMICO', icon: '🎵', xpRequired: 100 },
+        { name: 'PERCUSIONISTA', icon: '🔥', xpRequired: 300 },
+        { name: 'MAESTRO', icon: '⭐', xpRequired: 600 },
+        { name: 'LEYENDA', icon: '👑', xpRequired: 1000 }
+    ];
+    
+    // Achievement definitions
+    var achievements = [
+        { id: 'first_tap', name: 'FIRST TAP', icon: '👆', description: 'Tap your first conga', condition: function(s) { return s.totalTaps >= 1; } },
+        { id: 'streak_5', name: 'ON FIRE', icon: '🔥', description: 'Get a 5 streak', condition: function(s) { return s.bestStreak >= 5; } },
+        { id: 'streak_10', name: 'CANDELA', icon: '🔥🔥', description: 'Get a 10 streak', condition: function(s) { return s.bestStreak >= 10; } },
+        { id: 'streak_25', name: 'IMPARABLE', icon: '💪', description: 'Get a 25 streak', condition: function(s) { return s.bestStreak >= 25; } },
+        { id: 'streak_50', name: 'LEYENDA', icon: '👑', description: 'Get a 50 streak', condition: function(s) { return s.bestStreak >= 50; } },
+        { id: 'perfects_10', name: 'PRECISO', icon: '🎯', description: 'Get 10 perfect taps', condition: function(s) { return s.totalPerfects >= 10; } },
+        { id: 'perfects_50', name: 'CIRUJANO', icon: '💉', description: 'Get 50 perfect taps', condition: function(s) { return s.totalPerfects >= 50; } },
+        { id: 'games_5', name: 'DEDICADO', icon: '📚', description: 'Play 5 games', condition: function(s) { return s.gamesPlayed >= 5; } },
+        { id: 'games_20', name: 'ADICTO', icon: '🎮', description: 'Play 20 games', condition: function(s) { return s.gamesPlayed >= 20; } },
+        { id: 'taps_100', name: 'CALENTANDO', icon: '🌡️', description: 'Tap 100 times', condition: function(s) { return s.totalTaps >= 100; } },
+        { id: 'taps_500', name: 'MANOS DE FUEGO', icon: '🙌', description: 'Tap 500 times', condition: function(s) { return s.totalTaps >= 500; } },
+        { id: 'survive_60', name: 'SOBREVIVIENTE', icon: '⏱️', description: 'Survive 60 seconds', condition: function(s) { return s.survivalWins >= 1; } }
+    ];
+    
+    // Load player stats from localStorage
+    function loadPlayerStats() {
+        var defaultStats = {
+            xp: 0,
+            bestStreak: 0,
+            totalTaps: 0,
+            totalPerfects: 0,
+            gamesPlayed: 0,
+            survivalWins: 0,
+            perfect10Wins: 0,
+            unlockedAchievements: [],
+            weeklyTaps: 0,
+            weeklyBest: 0,
+            weeklySessions: 0,
+            weekStart: getWeekStart()
+        };
+        
+        var saved = localStorage.getItem('conga-stats');
+        if (saved) {
+            var stats = JSON.parse(saved);
+            // Check if new week
+            if (stats.weekStart !== getWeekStart()) {
+                stats.weeklyTaps = 0;
+                stats.weeklyBest = 0;
+                stats.weeklySessions = 0;
+                stats.weekStart = getWeekStart();
+            }
+            return Object.assign(defaultStats, stats);
+        }
+        return defaultStats;
+    }
+    
+    function getWeekStart() {
+        var now = new Date();
+        var day = now.getDay();
+        var diff = now.getDate() - day + (day === 0 ? -6 : 1);
+        return new Date(now.setDate(diff)).toISOString().split('T')[0];
+    }
+    
+    var playerStats = loadPlayerStats();
+    
+    // Save stats
+    function savePlayerStats() {
+        localStorage.setItem('conga-stats', JSON.stringify(playerStats));
+    }
+    
+    // Calculate current rank
+    function getCurrentRank() {
+        var currentRank = ranks[0];
+        for (var i = ranks.length - 1; i >= 0; i--) {
+            if (playerStats.xp >= ranks[i].xpRequired) {
+                currentRank = ranks[i];
+                break;
+            }
+        }
+        return currentRank;
+    }
+    
+    // Get next rank
+    function getNextRank() {
+        var currentIdx = ranks.findIndex(function(r) { return r.name === getCurrentRank().name; });
+        if (currentIdx < ranks.length - 1) {
+            return ranks[currentIdx + 1];
+        }
+        return null;
+    }
+    
+    // Add XP
+    function addXP(amount) {
+        var oldRank = getCurrentRank();
+        playerStats.xp += amount;
+        var newRank = getCurrentRank();
+        
+        if (newRank.name !== oldRank.name) {
+            // Rank up!
+            showMilestone('🎉 RANGO: ' + newRank.name + ' ' + newRank.icon);
+            playCongaRoll();
+            launchConfetti();
+            launchConfetti();
+        }
+        
+        savePlayerStats();
+    }
+    
+    // Track tap
+    function trackTap(isPerfect) {
+        playerStats.totalTaps++;
+        playerStats.weeklyTaps++;
+        if (isPerfect) {
+            playerStats.totalPerfects++;
+            addXP(3); // 3 XP for perfect
+        } else {
+            addXP(1); // 1 XP for good
+        }
+        checkAchievements();
+        savePlayerStats();
+    }
+    
+    // Track game
+    function trackGame() {
+        playerStats.gamesPlayed++;
+        playerStats.weeklySessions++;
+        addXP(5); // 5 XP per game
+        savePlayerStats();
+    }
+    
+    // Track streak
+    function trackStreak(currentStreak) {
+        if (currentStreak > playerStats.bestStreak) {
+            playerStats.bestStreak = currentStreak;
+        }
+        if (currentStreak > playerStats.weeklyBest) {
+            playerStats.weeklyBest = currentStreak;
+        }
+        checkAchievements();
+        savePlayerStats();
+    }
+    
+    // Track survival win
+    function trackSurvivalWin() {
+        playerStats.survivalWins++;
+        addXP(20);
+        checkAchievements();
+        savePlayerStats();
+    }
+    
+    // Check and unlock achievements
+    function checkAchievements() {
+        achievements.forEach(function(achievement) {
+            if (playerStats.unlockedAchievements.indexOf(achievement.id) === -1) {
+                if (achievement.condition(playerStats)) {
+                    unlockAchievement(achievement);
+                }
+            }
+        });
+    }
+    
+    // Unlock achievement
+    function unlockAchievement(achievement) {
+        playerStats.unlockedAchievements.push(achievement.id);
+        addXP(10);
+        
+        // Show popup
+        achievementPopupIcon.textContent = achievement.icon;
+        achievementPopupName.textContent = achievement.name;
+        achievementPopup.classList.add('show');
+        playCoqui();
+        
+        setTimeout(function() {
+            achievementPopup.classList.remove('show');
+        }, 3000);
+        
+        savePlayerStats();
+    }
+    
+    // Update stats panel display
+    function updateStatsPanel() {
+        var currentRank = getCurrentRank();
+        var nextRank = getNextRank();
+        
+        rankIconLarge.textContent = currentRank.icon;
+        rankName.textContent = currentRank.name;
+        
+        if (nextRank) {
+            var progress = ((playerStats.xp - currentRank.xpRequired) / (nextRank.xpRequired - currentRank.xpRequired)) * 100;
+            rankXp.textContent = playerStats.xp + ' / ' + nextRank.xpRequired + ' XP';
+            rankProgressFill.style.width = Math.min(100, progress) + '%';
+        } else {
+            rankXp.textContent = playerStats.xp + ' XP (MAX RANK!)';
+            rankProgressFill.style.width = '100%';
+        }
+        
+        statBestStreak.textContent = playerStats.bestStreak;
+        statTotalTaps.textContent = playerStats.totalTaps;
+        statPerfects.textContent = playerStats.totalPerfects;
+        statGamesPlayed.textContent = playerStats.gamesPlayed;
+        
+        weeklyTaps.textContent = playerStats.weeklyTaps;
+        weeklyBest.textContent = playerStats.weeklyBest;
+        weeklySessions.textContent = playerStats.weeklySessions;
+        
+        // Render achievements
+        achievementsGrid.innerHTML = '';
+        achievements.forEach(function(achievement) {
+            var isUnlocked = playerStats.unlockedAchievements.indexOf(achievement.id) !== -1;
+            var div = document.createElement('div');
+            div.className = 'achievement ' + (isUnlocked ? 'unlocked' : 'locked');
+            div.innerHTML = '<div class="achievement-icon">' + achievement.icon + '</div>' +
+                           '<div class="achievement-name">' + achievement.name + '</div>';
+            achievementsGrid.appendChild(div);
+        });
+    }
+    
+    // Stats panel handlers - using inline onclick in HTML
+    
+    // Initialize stats display
+    updateStatsPanel();
+
+    // ============ PHASE 7: SETTINGS SYSTEM ============
+    
+    var settingsBtn = document.getElementById('settingsBtn');
+    var settingsPanel = document.getElementById('settingsPanel');
+    var settingsClose = document.getElementById('settingsClose');
+    var volumeSlider = document.getElementById('volumeSlider');
+    var volumeValue = document.getElementById('volumeValue');
+    var resetBtn = document.getElementById('resetBtn');
+    var confirmModal = document.getElementById('confirmModal');
+    var confirmCancel = document.getElementById('confirmCancel');
+    var confirmReset = document.getElementById('confirmReset');
+    var timingIndicator = document.getElementById('timingIndicator');
+    var timingMarker = document.getElementById('timingMarker');
+    
+    // Default settings
+    var defaultSettings = {
+        volume: 70,
+        sound: true,
+        music: true,
+        coqui: true,
+        haptics: true,
+        effects: true,
+        callouts: true,
+        timing: false,
+        onehand: false
+    };
+    
+    // Load settings
+    function loadSettings() {
+        var saved = localStorage.getItem('conga-settings');
+        if (saved) {
+            return Object.assign({}, defaultSettings, JSON.parse(saved));
+        }
+        return Object.assign({}, defaultSettings);
+    }
+    
+    var gameSettings = loadSettings();
+    
+    // Save settings
+    function saveSettings() {
+        localStorage.setItem('conga-settings', JSON.stringify(gameSettings));
+    }
+    
+    // Apply settings to UI
+    function applySettingsUI() {
+        // Volume
+        volumeSlider.value = gameSettings.volume;
+        volumeValue.textContent = gameSettings.volume + '%';
+        
+        // Toggles
+        document.querySelectorAll('.toggle-switch').forEach(function(toggle) {
+            var setting = toggle.dataset.setting;
+            if (gameSettings[setting]) {
+                toggle.classList.add('active');
+            } else {
+                toggle.classList.remove('active');
+            }
+        });
+        
+        // One-hand mode
+        if (gameSettings.onehand) {
+            document.body.classList.add('one-hand-mode');
+        } else {
+            document.body.classList.remove('one-hand-mode');
+        }
+        
+        // Timing indicator
+        if (gameSettings.timing && isPlaying) {
+            timingIndicator.classList.add('show');
+        } else {
+            timingIndicator.classList.remove('show');
+        }
+    }
+    
+    // Initialize settings UI
+    applySettingsUI();
+    
+    // Settings panel handlers - using inline onclick in HTML
+    
+    // Volume slider
+    volumeSlider.oninput = function() {
+        gameSettings.volume = parseInt(volumeSlider.value);
+        volumeValue.textContent = gameSettings.volume + '%';
+        saveSettings();
+    };
+    
+    // Toggle switches
+    document.querySelectorAll('.toggle-switch').forEach(function(toggle) {
+        toggle.onclick = function() {
+            var setting = toggle.dataset.setting;
+            gameSettings[setting] = !gameSettings[setting];
+            toggle.classList.toggle('active');
+            saveSettings();
+            applySettingsUI();
+        };
+    });
+    
+    // Reset progress
+    addTapHandler(resetBtn, function() {
+        confirmModal.classList.add('show');
+    });
+    
+    addTapHandler(confirmCancel, function() {
+        confirmModal.classList.remove('show');
+    });
+    
+    addTapHandler(confirmReset, function() {
+        // Clear all progress
+        localStorage.removeItem('conga-stats');
+        localStorage.removeItem('conga-best');
+        localStorage.removeItem('conga-theme');
+        localStorage.removeItem('conga-settings');
+        
+        // Reset in-memory
+        playerStats = loadPlayerStats();
+        best = 0;
+        bestEl.textContent = 0;
+        gameSettings = loadSettings();
+        
+        // Update UI
+        applySettingsUI();
+        updateStatsPanel();
+        setTheme('night');
+        
+        // Close modals
+        confirmModal.classList.remove('show');
+        settingsPanel.classList.remove('show');
+        
+        // Show confirmation
+        showMilestone('🗑️ PROGRESS RESET');
+    });
+    
+    // Get volume multiplier for audio
+    function getVolume() {
+        return gameSettings.volume / 100;
+    }
+    
+    // Check if sound is enabled
+    function isSoundEnabled() {
+        return gameSettings.sound;
+    }
+    
+    // Check if music is enabled
+    function isMusicEnabled() {
+        return gameSettings.music;
+    }
+    
+    // Check if coqui is enabled
+    function isCoquiEnabled() {
+        return gameSettings.coqui;
+    }
+    
+    // Check if haptics enabled
+    function isHapticsEnabled() {
+        return gameSettings.haptics;
+    }
+    
+    // Check if effects enabled
+    function isEffectsEnabled() {
+        return gameSettings.effects;
+    }
+    
+    // Check if callouts enabled
+    function isCalloutsEnabled() {
+        return gameSettings.callouts;
+    }
+    
+    // Update timing indicator position
+    function updateTimingIndicator(progress) {
+        if (!gameSettings.timing) return;
+        // progress: 0 = start of beat, 1 = end of beat
+        var position = progress * 100;
+        timingMarker.style.left = position + '%';
+    }
+
+    // Audio - Realistic Conga Synthesis
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    // Create noise buffer for slap attack
+    var noiseBuffer = null;
+    function createNoiseBuffer() {
+        if (noiseBuffer || !audioCtx) return;
+        var bufferSize = audioCtx.sampleRate * 0.1;
+        noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        var output = noiseBuffer.getChannelData(0);
+        for (var i = 0; i < bufferSize; i++) {
+            output[i] = Math.random() * 2 - 1;
+        }
+    }
+
+    // Beat metronome - subtle clave-style click
+    function playBeat() {
+        if (!audioCtx) return;
+        var now = audioCtx.currentTime;
+        var osc = audioCtx.createOscillator();
+        var gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, now);
+        osc.frequency.exponentialRampToValueAtTime(400, now + 0.03);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.06);
+    }
+
+    // Each conga has unique pitch (low to high: 0→4)
+    // Tumba (low) → Conga → Quinto (high)
+    var congaPitches = [
+        { freq: 120, freqDecay: 80, name: 'tumba' },      // Conga 1 - deep bass
+        { freq: 160, freqDecay: 100, name: 'segundo' },   // Conga 2 
+        { freq: 200, freqDecay: 130, name: 'conga' },     // Conga 3 - middle
+        { freq: 260, freqDecay: 170, name: 'requinto' },  // Conga 4
+        { freq: 340, freqDecay: 220, name: 'quinto' }     // Conga 5 - high slap
+    ];
+
+    function playCongaHit(congaIndex, quality) {
+        if (!audioCtx || !isSoundEnabled()) return;
+        createNoiseBuffer();
+        var now = audioCtx.currentTime;
+        var vol = getVolume(); // Master volume
+        
+        var pitch = congaPitches[congaIndex] || congaPitches[2];
+        
+        // Adjust volume/decay based on quality
+        var volume = (quality === 'perfect' ? 0.7 : quality === 'good' ? 0.6 : 0.4) * vol;
+        var decay = quality === 'perfect' ? 0.35 : quality === 'good' ? 0.28 : 0.15;
+        var noiseVol = (quality === 'perfect' ? 0.3 : 0.2) * vol;
+
+        // Main body tone
+        var osc = audioCtx.createOscillator();
+        var oscGain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(pitch.freq, now);
+        osc.frequency.exponentialRampToValueAtTime(pitch.freqDecay, now + decay);
+        oscGain.gain.setValueAtTime(0, now);
+        oscGain.gain.linearRampToValueAtTime(volume, now + 0.005);
+        oscGain.gain.exponentialRampToValueAtTime(0.001, now + decay);
+        osc.connect(oscGain);
+        oscGain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + decay + 0.05);
+
+        // Harmonic overtone (more prominent on higher congas)
+        var harmonic = 2.2 + (congaIndex * 0.15);
+        var osc2 = audioCtx.createOscillator();
+        var osc2Gain = audioCtx.createGain();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(pitch.freq * harmonic, now);
+        osc2.frequency.exponentialRampToValueAtTime(pitch.freqDecay * 1.5, now + decay * 0.5);
+        osc2Gain.gain.setValueAtTime(0, now);
+        osc2Gain.gain.linearRampToValueAtTime(volume * (0.25 + congaIndex * 0.05), now + 0.003);
+        osc2Gain.gain.exponentialRampToValueAtTime(0.001, now + decay * 0.5);
+        osc2.connect(osc2Gain);
+        osc2Gain.connect(audioCtx.destination);
+        osc2.start(now);
+        osc2.stop(now + decay);
+
+        // Noise attack (more slap on higher congas)
+        if (noiseBuffer) {
+            var noise = audioCtx.createBufferSource();
+            var noiseGain = audioCtx.createGain();
+            var noiseFilter = audioCtx.createBiquadFilter();
+            noise.buffer = noiseBuffer;
+            noiseFilter.type = 'bandpass';
+            noiseFilter.frequency.value = pitch.freq * (3 + congaIndex * 0.5);
+            noiseFilter.Q.value = 1.5;
+            var attackVol = noiseVol * (0.8 + congaIndex * 0.1);
+            noiseGain.gain.setValueAtTime(attackVol, now);
+            noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+            noise.connect(noiseFilter);
+            noiseFilter.connect(noiseGain);
+            noiseGain.connect(audioCtx.destination);
+            noise.start(now);
+            noise.stop(now + 0.05);
+        }
+    }
+
+    // Wrong tap sound - muted slap (authentic conga miss)
+    function playWrongSound() {
+        if (!audioCtx) return;
+        createNoiseBuffer();
+        var now = audioCtx.currentTime;
+        
+        // Muted thud - like hitting the side of the drum
+        var osc = audioCtx.createOscillator();
+        var gain = audioCtx.createGain();
+        var filter = audioCtx.createBiquadFilter();
+        
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(80, now);
+        osc.frequency.exponentialRampToValueAtTime(40, now + 0.08);
+        
+        filter.type = 'lowpass';
+        filter.frequency.value = 200;
+        
+        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+        
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.12);
+        
+        // Add muted noise
+        if (noiseBuffer) {
+            var noise = audioCtx.createBufferSource();
+            var noiseGain = audioCtx.createGain();
+            var noiseFilter = audioCtx.createBiquadFilter();
+            noise.buffer = noiseBuffer;
+            noiseFilter.type = 'lowpass';
+            noiseFilter.frequency.value = 300;
+            noiseGain.gain.setValueAtTime(0.15, now);
+            noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+            noise.connect(noiseFilter);
+            noiseFilter.connect(noiseGain);
+            noiseGain.connect(audioCtx.destination);
+            noise.start(now);
+            noise.stop(now + 0.08);
+        }
+    }
+    
+    // ============ PHASE 2: ENHANCED AUDIO ============
+    
+    // Coquí chirp - Puerto Rico's iconic tree frog! 🐸
+    function playCoqui() {
+        if (!audioCtx || !isCoquiEnabled()) return;
+        var now = audioCtx.currentTime;
+        var vol = getVolume();
+        
+        // "Co" - first chirp
+        var osc1 = audioCtx.createOscillator();
+        var gain1 = audioCtx.createGain();
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(1200, now);
+        osc1.frequency.exponentialRampToValueAtTime(900, now + 0.08);
+        gain1.gain.setValueAtTime(0, now);
+        gain1.gain.linearRampToValueAtTime(0.2 * vol, now + 0.01);
+        gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+        osc1.connect(gain1);
+        gain1.connect(audioCtx.destination);
+        osc1.start(now);
+        osc1.stop(now + 0.12);
+        
+        // "Quí" - second chirp (higher)
+        var osc2 = audioCtx.createOscillator();
+        var gain2 = audioCtx.createGain();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(1800, now + 0.12);
+        osc2.frequency.exponentialRampToValueAtTime(1400, now + 0.22);
+        gain2.gain.setValueAtTime(0, now + 0.12);
+        gain2.gain.linearRampToValueAtTime(0.25 * vol, now + 0.13);
+        gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+        osc2.connect(gain2);
+        gain2.connect(audioCtx.destination);
+        osc2.start(now + 0.12);
+        osc2.stop(now + 0.28);
+    }
+    
+    // Crowd "¡WEPA!" - synthetic crowd cheer
+    function playWepaCheer() {
+        if (!audioCtx) return;
+        createNoiseBuffer();
+        var now = audioCtx.currentTime;
+        
+        // Crowd noise burst
+        if (noiseBuffer) {
+            var noise = audioCtx.createBufferSource();
+            var noiseGain = audioCtx.createGain();
+            var filter = audioCtx.createBiquadFilter();
+            noise.buffer = noiseBuffer;
+            filter.type = 'bandpass';
+            filter.frequency.value = 1000;
+            filter.Q.value = 0.5;
+            noiseGain.gain.setValueAtTime(0, now);
+            noiseGain.gain.linearRampToValueAtTime(0.3, now + 0.05);
+            noiseGain.gain.setValueAtTime(0.3, now + 0.2);
+            noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+            noise.connect(filter);
+            filter.connect(noiseGain);
+            noiseGain.connect(audioCtx.destination);
+            noise.start(now);
+            noise.stop(now + 0.7);
+        }
+        
+        // Rising tone (like crowd "WEEE")
+        var osc = audioCtx.createOscillator();
+        var gain = audioCtx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(300, now);
+        osc.frequency.exponentialRampToValueAtTime(600, now + 0.15);
+        osc.frequency.setValueAtTime(600, now + 0.15);
+        osc.frequency.exponentialRampToValueAtTime(400, now + 0.4);
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(0.08, now + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.6);
+    }
+    
+    // Conga roll fanfare - rapid succession for celebrations
+    function playCongaRoll() {
+        if (!audioCtx) return;
+        var now = audioCtx.currentTime;
+        var rollNotes = [0, 2, 4, 2, 0, 2, 4, 4, 4]; // Pattern across congas
+        var noteTime = 0.06; // Fast!
+        
+        rollNotes.forEach(function(congaIdx, i) {
+            var pitch = congaPitches[congaIdx];
+            var time = now + (i * noteTime);
+            var volume = 0.3 + (i * 0.05); // Build up
+            
+            var osc = audioCtx.createOscillator();
+            var oscGain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(pitch.freq, time);
+            osc.frequency.exponentialRampToValueAtTime(pitch.freqDecay, time + 0.12);
+            oscGain.gain.setValueAtTime(0, time);
+            oscGain.gain.linearRampToValueAtTime(volume, time + 0.005);
+            oscGain.gain.exponentialRampToValueAtTime(0.001, time + 0.12);
+            osc.connect(oscGain);
+            oscGain.connect(audioCtx.destination);
+            osc.start(time);
+            osc.stop(time + 0.15);
+        });
+    }
+    
+    // Background bomba loop state
+    var bombaLoop = null;
+    var bombaGain = null;
+    var bombaPlaying = false;
+    
+    // Start background bomba rhythm
+    function startBombaLoop() {
+        if (bombaPlaying || !audioCtx || !isMusicEnabled()) return;
+        bombaPlaying = true;
+        
+        bombaGain = audioCtx.createGain();
+        bombaGain.gain.value = 0.12 * getVolume(); // Subtle background with volume
+        bombaGain.connect(audioCtx.destination);
+        
+        // Bomba pattern: classic Puerto Rican rhythm
+        // Pattern: [beat, rest, beat-beat, rest] in 4/4
+        var pattern = [
+            { time: 0, pitch: 0 },      // Tumba on 1
+            { time: 0.5, pitch: 2 },    // Conga on 2+
+            { time: 0.75, pitch: 4 },   // Quinto pickup
+            { time: 1, pitch: 0 },      // Tumba on 3
+            { time: 1.5, pitch: 2 },    // Conga on 4+
+            { time: 1.75, pitch: 3 },   // Requinto pickup
+        ];
+        
+        var loopLength = 2; // 2 beats per pattern
+        
+        function scheduleBomba() {
+            if (!bombaPlaying) return;
+            
+            var interval = 60 / bpm; // seconds per beat
+            var now = audioCtx.currentTime;
+            
+            pattern.forEach(function(note) {
+                var time = now + (note.time * interval);
+                var pitch = congaPitches[note.pitch];
+                
+                var osc = audioCtx.createOscillator();
+                var oscGain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(pitch.freq * 0.8, time);
+                osc.frequency.exponentialRampToValueAtTime(pitch.freqDecay * 0.8, time + 0.15);
+                oscGain.gain.setValueAtTime(0, time);
+                oscGain.gain.linearRampToValueAtTime(0.15, time + 0.005);
+                oscGain.gain.exponentialRampToValueAtTime(0.001, time + 0.15);
+                osc.connect(oscGain);
+                oscGain.connect(bombaGain);
+                osc.start(time);
+                osc.stop(time + 0.18);
+            });
+            
+            // Schedule next loop
+            bombaLoop = setTimeout(scheduleBomba, loopLength * interval * 1000);
+        }
+        
+        scheduleBomba();
+    }
+    
+    // Stop background bomba
+    function stopBombaLoop() {
+        bombaPlaying = false;
+        if (bombaLoop) {
+            clearTimeout(bombaLoop);
+            bombaLoop = null;
+        }
+    }
+
+    // ============ VISUAL EFFECTS ============
+    
+    // Particle colors
+    var particleColors = ['#FFD700', '#FF6B35', '#FF1493', '#00D9D9', '#FF8C42'];
+    var congaColors = ['#FFD700', '#FF6B35', '#FF1493', '#00D9D9', '#9B59B6'];
+    
+    // Expanded Boricua callouts! 🇵🇷
+    var callouts = [
+        '¡WEPA!', '¡FUEGO!', '¡DALE!', '¡ASÍ!', '¡OYE!',
+        '¡DURO!', '¡BÁILALO!', '¡AZÚCAR!', '¡PA\' LANTE!',
+        '¡QUÉ NOTA!', '¡DIMELO!', '¡SABROSO!', '¡BORICUA!',
+        '¡ESO!', '¡MIRA!', '¡TOMA!', '¡BIEN!', '¡FLOW!',
+        '¡A FUEGO!', '¡QUÉ COOL!', '¡VACANO!', '¡NÍTIDO!',
+        '🔥', '💥', '⚡', '🎯', '💪', '🇵🇷', '🥁', '🌴'
+    ];
+    var milestoneCallouts = [
+        '¡TREMENDO!', '¡BRUTAL!', '¡CANDELA!', '¡FENOMENAL!',
+        '¡LEYENDA!', '¡MAESTRO!', '¡IMPARABLE!', '¡DE MADRE!',
+        '¡SALVAJE!', '¡MATÓN!', '¡PUÑETA!', '🔥🔥🔥', '🇵🇷🔥'
+    ];
+    
+    // Location-specific callouts based on theme
+    var locationCallouts = {
+        sanjuan: ['¡VIEJO SAN JUAN!', '¡BORINQUEN!', '¡LA PERLA!', '¡GARITA!'],
+        yunque: ['¡COQUÍ!', '¡TAÍNO!', '¡EL YUNQUE!', '¡SELVA!'],
+        flamenco: ['¡CULEBRA!', '¡PLAYA!', '¡PARAÍSO!', '¡CARIBE!']
+    };
+    var calloutCounter = 0;
+    
+    // Combo multiplier system
+    var comboMultiplier = 1;
+    var comboDisplay = null;
+    
+    function initComboDisplay() {
+        if (!comboDisplay) {
+            comboDisplay = document.createElement('div');
+            comboDisplay.className = 'combo-display';
+            comboDisplay.id = 'comboDisplay';
+            document.body.appendChild(comboDisplay);
+        }
+    }
+    
+    function updateCombo(currentStreak) {
+        initComboDisplay();
+        var oldMultiplier = comboMultiplier;
+        
+        if (currentStreak >= 20) {
+            comboMultiplier = 5;
+        } else if (currentStreak >= 15) {
+            comboMultiplier = 4;
+        } else if (currentStreak >= 10) {
+            comboMultiplier = 3;
+        } else if (currentStreak >= 5) {
+            comboMultiplier = 2;
+        } else {
+            comboMultiplier = 1;
+        }
+        
+        if (comboMultiplier > 1) {
+            comboDisplay.textContent = comboMultiplier + 'X';
+            comboDisplay.className = 'combo-display show x' + comboMultiplier;
+            
+            // Flash when multiplier increases
+            if (comboMultiplier > oldMultiplier) {
+                comboDisplay.style.animation = 'none';
+                setTimeout(function() {
+                    comboDisplay.style.animation = 'comboPop 0.3s ease-out';
+                }, 10);
+            }
+        } else {
+            comboDisplay.classList.remove('show');
+        }
+        
+        return comboMultiplier;
+    }
+    
+    function resetCombo() {
+        comboMultiplier = 1;
+        if (comboDisplay) {
+            comboDisplay.classList.remove('show');
+        }
+    }
+    
+    // Fire mode controller
+    var flameInterval = null;
+    
+    function setFireMode(currentStreak) {
+        if (currentStreak >= 10) {
+            // FUEGO MODE! 🔥🔥🔥
+            congaRow.classList.remove('on-fire');
+            congaRow.classList.add('fuego-mode');
+            startFlames();
+        } else if (currentStreak >= 5) {
+            // Regular fire
+            congaRow.classList.remove('fuego-mode');
+            congaRow.classList.add('on-fire');
+            stopFlames();
+        } else {
+            congaRow.classList.remove('on-fire');
+            congaRow.classList.remove('fuego-mode');
+            stopFlames();
+        }
+    }
+    
+    function startFlames() {
+        if (flameInterval) return;
+        flameInterval = setInterval(function() {
+            tapCongas.forEach(function(conga) {
+                if (Math.random() > 0.5) {
+                    createFlame(conga);
+                }
+            });
+        }, 200);
+    }
+    
+    function stopFlames() {
+        if (flameInterval) {
+            clearInterval(flameInterval);
+            flameInterval = null;
+        }
+    }
+    
+    function createFlame(congaElement) {
+        var flame = document.createElement('div');
+        flame.className = 'flame';
+        flame.style.left = (20 + Math.random() * 60) + '%';
+        flame.style.bottom = '60%';
+        congaElement.appendChild(flame);
+        setTimeout(function() { flame.remove(); }, 600);
+    }
+    
+    // Tap particles burst from a specific conga
+    function createTapParticles(congaElement) {
+        var rect = congaElement.getBoundingClientRect();
+        var centerX = rect.left + rect.width / 2;
+        var centerY = rect.top + rect.height / 3;
+        
+        for (var i = 0; i < 6; i++) {
+            var particle = document.createElement('div');
+            particle.className = 'tap-particle';
+            particle.style.left = centerX + 'px';
+            particle.style.top = centerY + 'px';
+            particle.style.background = particleColors[Math.floor(Math.random() * particleColors.length)];
+            
+            var angle = (i / 6) * Math.PI * 2;
+            var distance = 40 + Math.random() * 30;
+            particle.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+            particle.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
+            particle.style.animation = 'particleBurst 0.3s ease-out forwards';
+            
+            document.body.appendChild(particle);
+            setTimeout(function(p) { p.remove(); }.bind(null, particle), 300);
+        }
+    }
+    
+    // Color burst ring effect
+    function createColorBurst(congaElement, congaIndex) {
+        if (!isEffectsEnabled()) return;
+        var burst = document.createElement('div');
+        burst.className = 'color-burst';
+        burst.style.setProperty('--burst-color', congaColors[congaIndex]);
+        congaElement.appendChild(burst);
+        setTimeout(function() { burst.remove(); }, 500);
+    }
+    
+    // Spark particles flying off
+    function createSparks(congaElement, congaIndex) {
+        if (!isEffectsEnabled()) return;
+        var color = congaColors[congaIndex];
+        for (var i = 0; i < 8; i++) {
+            var spark = document.createElement('div');
+            spark.className = 'spark';
+            spark.style.background = color;
+            spark.style.boxShadow = '0 0 6px ' + color;
+            spark.style.left = '50%';
+            spark.style.top = '30%';
+            
+            var angle = (i / 8) * Math.PI * 2 + (Math.random() - 0.5) * 0.5;
+            var distance = 50 + Math.random() * 40;
+            spark.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+            spark.style.setProperty('--ty', Math.sin(angle) * distance - 20 + 'px');
+            
+            congaElement.appendChild(spark);
+            setTimeout(function(s) { s.remove(); }.bind(null, spark), 600);
+        }
+    }
+    
+    // Random callout popup
+    function showCallout(congaElement, forceShow) {
+        if (!isCalloutsEnabled()) return;
+        
+        calloutCounter++;
+        // Show callout every 3rd tap (not too spammy) unless forced
+        if (!forceShow && calloutCounter % 3 !== 0) return;
+        
+        var callout = document.createElement('div');
+        callout.className = 'callout';
+        
+        // Use milestone callouts if streak is high
+        var calloutList = (streak >= 10) ? milestoneCallouts : callouts;
+        
+        // 30% chance to use location-specific callout if in PR theme
+        if (Math.random() < 0.3 && locationCallouts[currentTheme]) {
+            calloutList = locationCallouts[currentTheme];
+        }
+        
+        callout.textContent = calloutList[Math.floor(Math.random() * calloutList.length)];
+        
+        congaElement.appendChild(callout);
+        setTimeout(function() { callout.remove(); }, 800);
+    }
+    
+    // Show callout on any conga (for game mode)
+    function showRandomCallout() {
+        var randomConga = tapCongas[Math.floor(Math.random() * tapCongas.length)];
+        showCallout(randomConga, true);
+    }
+    
+    // Combined free play effects
+    function freePlayTapEffects(congaElement, congaIndex) {
+        congaElement.classList.add('tapped');
+        createColorBurst(congaElement, congaIndex);
+        createSparks(congaElement, congaIndex);
+        showCallout(congaElement);
+        createGlowTrail(congaElement, congaIndex);
+        setTimeout(function() {
+            congaElement.classList.remove('tapped');
+        }, 150);
+    }
+    
+    // ============ PHASE 3: VISUAL EFFECTS ============
+    
+    // Neon Glow Trail on tap
+    function createGlowTrail(congaElement, congaIndex) {
+        if (!isEffectsEnabled()) return;
+        var trail = document.createElement('div');
+        trail.className = 'glow-trail';
+        trail.style.setProperty('--conga-glow', congaColors[congaIndex]);
+        congaElement.appendChild(trail);
+        setTimeout(function() { trail.remove(); }, 800);
+        
+        // Add neon pulse class
+        congaElement.classList.add('neon-active');
+        setTimeout(function() { congaElement.classList.remove('neon-active'); }, 500);
+    }
+    
+    // Beat visualizer - pulsing rings from center
+    var beatVisualizer = document.getElementById('beatVisualizer');
+    var ringColors = ['', 'pink', 'teal', 'orange'];
+    var ringIndex = 0;
+    
+    function createBeatRing() {
+        if (!beatVisualizer || !isEffectsEnabled()) return;
+        var ring = document.createElement('div');
+        ring.className = 'beat-ring ' + ringColors[ringIndex % ringColors.length];
+        ringIndex++;
+        beatVisualizer.appendChild(ring);
+        setTimeout(function() { ring.remove(); }, 600);
+    }
+    
+    // Theme system
+    var themeButtons = document.querySelectorAll('.theme-btn');
+    var currentTheme = localStorage.getItem('conga-theme') || 'night';
+    var locationBadge = document.getElementById('locationBadge');
+    
+    // Location names for PR themes
+    var locationNames = {
+        sanjuan: '🏰 OLD SAN JUAN',
+        yunque: '🌴 EL YUNQUE',
+        flamenco: '🏖️ FLAMENCO BEACH'
+    };
+    
+    function setTheme(themeName) {
+        // Remove all theme classes
+        document.body.classList.remove(
+            'theme-night', 'theme-sunset', 'theme-beach', 'theme-neon',
+            'theme-sanjuan', 'theme-yunque', 'theme-flamenco'
+        );
+        // Add new theme
+        document.body.classList.add('theme-' + themeName);
+        // Update buttons
+        themeButtons.forEach(function(btn) {
+            btn.classList.remove('active');
+            if (btn.dataset.theme === themeName) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Show location badge for PR themes
+        if (locationNames[themeName]) {
+            locationBadge.textContent = locationNames[themeName];
+            locationBadge.classList.add('show');
+        } else {
+            locationBadge.classList.remove('show');
+        }
+        
+        // Save preference
+        localStorage.setItem('conga-theme', themeName);
+        currentTheme = themeName;
+    }
+    
+    // Initialize theme
+    setTheme(currentTheme);
+    
+    // Theme button handlers
+    themeButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            setTheme(btn.dataset.theme);
+        });
+    });
+    
+    // Screen shake
+    function screenShake() {
+        document.body.classList.add('shake');
+        setTimeout(function() { document.body.classList.remove('shake'); }, 400);
+    }
+    
+    // Conga row glow when on fire - now uses setFireMode
+    function setOnFire(on) {
+        if (!on) {
+            congaRow.classList.remove('on-fire');
+            congaRow.classList.remove('fuego-mode');
+            stopFlames();
+            resetCombo();
+        }
+    }
+    
+    // Confetti explosion
+    function launchConfetti() {
+        var colors = ['#FFD700', '#FF6B35', '#FF1493', '#00D9D9', '#FF8C42', '#32CD32'];
+        var shapes = ['circle', 'square'];
+        
+        for (var i = 0; i < 50; i++) {
+            var confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = (20 + Math.random() * 60) + '%';
+            confetti.style.top = '-20px';
+            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)] === 'circle' ? '50%' : '2px';
+            confetti.style.width = (6 + Math.random() * 8) + 'px';
+            confetti.style.height = confetti.style.width;
+            confetti.style.animation = 'confettiFall ' + (1.5 + Math.random() * 1.5) + 's ease-out forwards';
+            confetti.style.animationDelay = (Math.random() * 0.3) + 's';
+            
+            confettiContainer.appendChild(confetti);
+            setTimeout(function(c) { c.remove(); }.bind(null, confetti), 3500);
+        }
+    }
+    
+    // Milestone popup
+    var milestoneTimeout = null;
+    function showMilestone(text) {
+        clearTimeout(milestoneTimeout);
+        milestone.textContent = text;
+        milestone.classList.remove('show');
+        void milestone.offsetWidth;
+        milestone.classList.add('show');
+        milestoneTimeout = setTimeout(function() { milestone.classList.remove('show'); }, 1000);
+    }
+    
+    // Check streak milestones
+    var lastMilestone = 0;
+    function checkMilestone(currentStreak) {
+        // Update combo multiplier
+        updateCombo(currentStreak);
+        
+        // Update fire mode
+        setFireMode(currentStreak);
+        
+        if (currentStreak >= 5 && lastMilestone < 5) {
+            showMilestone('¡FUEGO! 🔥 2X');
+            playWepaCheer();
+            lastMilestone = 5;
+        }
+        if (currentStreak >= 10 && lastMilestone < 10) {
+            showMilestone('¡CANDELA! 🔥🔥 3X');
+            playWepaCheer();
+            playCongaRoll();
+            launchConfetti();
+            lastMilestone = 10;
+        }
+        if (currentStreak >= 15 && lastMilestone < 15) {
+            showMilestone('¡BRUTAL! 🔥🔥🔥 4X');
+            playWepaCheer();
+            launchConfetti();
+            lastMilestone = 15;
+        }
+        if (currentStreak >= 20 && lastMilestone < 20) {
+            showMilestone('¡BORICUA! 🇵🇷🔥 5X');
+            playWepaCheer();
+            playCongaRoll();
+            launchConfetti();
+            launchConfetti();
+            lastMilestone = 20;
+        }
+        if (currentStreak >= 50 && lastMilestone < 50) {
+            showMilestone('¡LEYENDA! 👑🔥🔥🔥');
+            playWepaCheer();
+            playCongaRoll();
+            setTimeout(playCongaRoll, 400);
+            launchConfetti();
+            launchConfetti();
+            launchConfetti();
+            lastMilestone = 50;
+        }
+        if (currentStreak === 0) {
+            lastMilestone = 0;
+            setOnFire(false);
+        }
+    }
+    
+    // Beat pulse on game area
+    function beatPulse() {
+        gameArea.classList.remove('beat-pulse');
+        void gameArea.offsetWidth;
+        gameArea.classList.add('beat-pulse');
+        
+        // Create beat visualizer ring
+        createBeatRing();
+    }
+
+    // Vibration feedback with haptics setting
+    function vibrate(duration) {
+        if (!isHapticsEnabled()) return;
+        if (navigator.vibrate) {
+            navigator.vibrate(duration);
+        }
+    }
+    
+    // Enhanced haptic patterns
+    function vibratePattern(pattern) {
+        if (!isHapticsEnabled()) return;
+        if (navigator.vibrate) {
+            navigator.vibrate(pattern);
+        }
+    }
+    
+    // Haptic feedback for different events
+    function hapticTap() { vibrate(15); }
+    function hapticPerfect() { vibratePattern([20, 30, 40]); }
+    function hapticMiss() { vibratePattern([50, 20, 50]); }
+    function hapticMilestone() { vibratePattern([30, 50, 30, 50, 60]); }
+
+    // Game loop
+    function startGame() {
+        initAudio();
+        
+        // Show countdown first (except for practice mode)
+        if (currentMode !== 'practice') {
+            showCountdown(actuallyStartGame);
+        } else {
+            actuallyStartGame();
+        }
+    }
+    
+    function actuallyStartGame() {
+        isPlaying = true;
+        streak = 0;
+        streakEl.textContent = 0;
+        patternIndex = 0;
+        lastMilestone = 0;
+        currentlyLit = -1;
+        tappedThisBeat = false;
+        perfectCount = 0;
+        isPracticeMode = (currentMode === 'practice');
+        setOnFire(false);
+        startBtn.textContent = '⏹ STOP';
+        startBtn.classList.add('playing');
+        bpmOptions.forEach(function(b) { b.style.pointerEvents = 'none'; b.style.opacity = '0.5'; });
+        patternOptions.forEach(function(b) { b.style.pointerEvents = 'none'; b.style.opacity = '0.5'; });
+        modeOptions.forEach(function(b) { b.style.pointerEvents = 'none'; b.style.opacity = '0.5'; });
+        
+        // Show timing indicator if enabled
+        if (gameSettings.timing) {
+            timingIndicator.classList.add('show');
+        }
+        
+        // Track game for stats (except practice mode)
+        if (!isPracticeMode) {
+            trackGame();
+        }
+        
+        // Start challenge mode if applicable
+        startChallenge();
+        
+        // Start background bomba rhythm 🇵🇷 (not in practice mode)
+        if (!isPracticeMode) {
+            startBombaLoop();
+        }
+
+        // Practice mode uses slower BPM
+        var gameBpm = isPracticeMode ? Math.max(45, bpm - 30) : bpm;
+        var interval = 60000 / gameBpm;
+        
+        function tick() {
+            // Check if player missed previous beat (not in practice mode)
+            if (!isPracticeMode && currentlyLit >= 0 && !tappedThisBeat && patternIndex > 0) {
+                streak = 0;
+                streakEl.textContent = streak;
+                showFeedback('miss');
+                checkMilestone(streak);
+                hapticMiss();
+            }
+            
+            lastBeatTime = Date.now();
+            tappedThisBeat = false;
+            
+            // Reset timing marker to start
+            if (gameSettings.timing) {
+                timingMarker.style.left = '0%';
+            }
+            
+            // Clear all congas
+            tapCongas.forEach(function(c) { c.classList.remove('lit'); });
+            
+            // Light up ONE conga based on current pattern
+            var pattern = rhythmPatterns[currentPattern];
+            currentlyLit = pattern[patternIndex % pattern.length];
+            tapCongas[currentlyLit].classList.add('lit');
+            
+            playBeat();
+            beatPulse();
+            patternIndex++;
+        }
+        
+        // Timing indicator animation
+        var timingAnimFrame;
+        function animateTiming() {
+            if (!isPlaying || !gameSettings.timing) {
+                timingAnimFrame = null;
+                return;
+            }
+            var now = Date.now();
+            var elapsed = now - lastBeatTime;
+            var beatLength = 60000 / (isPracticeMode ? Math.max(45, bpm - 30) : bpm);
+            var progress = Math.min(elapsed / beatLength, 1);
+            timingMarker.style.left = (progress * 100) + '%';
+            timingAnimFrame = requestAnimationFrame(animateTiming);
+        }
+
+        tick();
+        beatInterval = setInterval(tick, interval);
+        
+        // Start timing animation if enabled
+        if (gameSettings.timing) {
+            animateTiming();
+        }
+    }
+
+    function stopGame() {
+        isPlaying = false;
+        clearInterval(beatInterval);
+        beatInterval = null;
+        
+        // Clear challenge timer if running
+        if (challengeTimerInterval) {
+            clearInterval(challengeTimerInterval);
+            challengeTimerInterval = null;
+        }
+        
+        // Reset UI
+        updateModeUI();
+        startBtn.classList.remove('playing');
+        bpmOptions.forEach(function(b) { b.style.pointerEvents = 'auto'; b.style.opacity = '1'; });
+        patternOptions.forEach(function(b) { b.style.pointerEvents = 'auto'; b.style.opacity = '1'; });
+        modeOptions.forEach(function(b) { b.style.pointerEvents = 'auto'; b.style.opacity = '1'; });
+        tapCongas.forEach(function(c) { c.classList.remove('lit'); });
+        setOnFire(false);
+        lastMilestone = 0;
+        isPracticeMode = false;
+        
+        // Hide challenge UI
+        challengeTimer.classList.remove('show', 'warning', 'critical');
+        challengeGoal.classList.remove('show');
+        practiceIndicator.classList.remove('show');
+        timingIndicator.classList.remove('show');
+        
+        // Stop background bomba
+        stopBombaLoop();
+        patternIndex = 0;
+        currentlyLit = -1;
+    }
+
+    startBtn.onclick = function() {
+        if (isPlaying) {
+            stopGame();
+        } else {
+            startGame();
+        }
+    };
+
+    // Conga tap handling
+    function handleCongaTap(congaIndex, congaElement) {
+        initAudio();
+        
+        // Play sound FIRST
+        playCongaHit(congaIndex, 'good');
+        
+        // Visual feedback on tap
+        createTapParticles(congaElement);
+        createGlowTrail(congaElement, congaIndex);
+        vibrate(20);
+        
+        // Add hit animation
+        congaElement.classList.add('hit-correct');
+        setTimeout(function() {
+            congaElement.classList.remove('hit-correct');
+        }, 200);
+
+        if (!isPlaying) {
+            // FREE PLAY MODE - add extra effects safely
+            try {
+                freePlayTapEffects(congaElement, congaIndex);
+            } catch(e) {}
+            showFeedback('start');
+            return;
+        }
+
+        // Check if this conga is lit
+        var isLit = currentlyLit === congaIndex;
+        
+        if (!isLit) {
+            // Wrong conga!
+            congaElement.classList.remove('hit-correct');
+            congaElement.classList.add('hit-wrong');
+            setTimeout(function() {
+                congaElement.classList.remove('hit-wrong');
+            }, 300);
+            
+            playWrongSound();
+            showFeedback('wrong');
+            streak = 0;
+            streakEl.textContent = streak;
+            checkMilestone(streak);
+            return;
+        }
+
+        // Correct conga! Check timing
+        var now = Date.now();
+        var interval = 60000 / bpm;
+        var timeSinceBeat = now - lastBeatTime;
+        var timeToNextBeat = interval - timeSinceBeat;
+        var tolerance = interval * 0.35; // Slightly more forgiving
+
+        var quality;
+        if (timeSinceBeat < tolerance || timeToNextBeat < tolerance) {
+            if (timeSinceBeat < tolerance * 0.4 || timeToNextBeat < tolerance * 0.4) {
+                quality = 'perfect';
+                if (!isPracticeMode) {
+                    streak++;
+                    trackPerfect(); // Track for Perfect 10 mode
+                    trackTap(true); // Track for stats
+                }
+                screenShake();
+                vibrate(40);
+                // Coquí chirp on perfect! 🐸🇵🇷
+                if (streak >= 3) playCoqui();
+            } else {
+                quality = 'good';
+                if (!isPracticeMode) {
+                    streak++;
+                    trackTap(false); // Track for stats
+                }
+            }
+            tappedThisBeat = true;
+        } else if (timeSinceBeat < interval * 0.5) {
+            quality = 'late';
+            if (!isPracticeMode) streak = 0;
+        } else {
+            quality = 'early';
+            if (!isPracticeMode) streak = 0;
+        }
+
+        playCongaHit(congaIndex, quality);
+        showFeedback(quality);
+        streakEl.textContent = streak;
+        if (!isPracticeMode) {
+            checkMilestone(streak);
+            trackStreak(streak); // Track streak for stats
+        }
+
+        if (streak > best && !isPracticeMode) {
+            best = streak;
+            bestEl.textContent = best;
+            localStorage.setItem('conga-best', best);
+        }
+    }
+
+    function showFeedback(quality) {
+        clearTimeout(feedbackTimeout);
+        var text = quality === 'perfect' ? '¡PERFECTO!' : 
+                   quality === 'good' ? '¡BUENO!' : 
+                   quality === 'early' ? 'EARLY' : 
+                   quality === 'late' ? 'LATE' :
+                   quality === 'wrong' ? '¡WRONG!' :
+                   quality === 'miss' ? 'MISS!' :
+                   quality === 'start' ? 'TAP START ↓' : '';
+        feedback.textContent = text;
+        feedback.className = 'feedback-text show ' + quality;
+        feedbackTimeout = setTimeout(function() {
+            feedback.classList.remove('show');
+        }, 400);
+    }
+
+    // Attach tap handlers to each conga
+    tapCongas.forEach(function(conga, index) {
+        conga.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            handleCongaTap(index, conga);
+        }, { passive: false });
+
+        conga.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            handleCongaTap(index, conga);
+        });
+
+        conga.addEventListener('touchend', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+    });
+
+    // Make sure buttons work on mobile
+    startBtn.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        startBtn.click();
+    }, { passive: false });
+
+    gotItBtn.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        gotItBtn.click();
+    }, { passive: false });
+
+    bpmOptions.forEach(function(btn) {
+        btn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            btn.click();
+        }, { passive: false });
+    });
+
+    patternOptions.forEach(function(btn) {
+        btn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            btn.click();
+        }, { passive: false });
+    });
+
+})();
+</script>
+</body>
+</html>
