@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>RITNOME CONGA 🥁 — Train Your Rhythm Like a Boricua</title>
+<meta name="description" content="Born in Puerto Rico. Powered by rhythm. Tap the conga, feel the beat, train your brain.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+    --gold:#FFD700;
+    --orange:#FF6B35;
+    --hot-pink:#FF1493;
+    --tropical-teal:#00D9D9;
+    --sunset:#FF8C42;
+    --deep-purple:#2D1B4E;
+    --warm-black:#1a0f0f;
+    --cream:#FFF8E7;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{
+    font-family:'Outfit',sans-serif;
+    background:linear-gradient(135deg,var(--warm-black) 0%,var(--deep-purple) 50%,#1a0a2e 100%);
+    color:var(--cream);
+    min-height:100vh;
+    min-height:100dvh;
+    overflow-x:hidden;
+}
+
+/* Animated background particles */
+.bg-particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+.particle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:var(--gold);
+    border-radius:50%;
+    opacity:0.3;
+    animation:float 8s ease-in-out infinite;
+}
+.particle:nth-child(2){left:20%;animation-delay:-2s;background:var(--hot-pink)}
+.particle:nth-child(3){left:40%;animation-delay:-4s;background:var(--tropical-teal)}
+.particle:nth-child(4){left:60%;animation-delay:-1s;background:var(--orange)}
+.particle:nth-child(5){left:80%;animation-delay:-3s;background:var(--gold)}
+.particle:nth-child(6){left:10%;animation-delay:-5s;background:var(--sunset)}
+.particle:nth-child(7){left:70%;animation-delay:-6s;background:var(--hot-pink)}
+.particle:nth-child(8){left:90%;animation-delay:-7s;background:var(--tropical-teal)}
+@keyframes float{
+    0%,100%{transform:translateY(100vh) scale(0);opacity:0}
+    10%{opacity:0.6}
+    90%{opacity:0.6}
+    100%{transform:translateY(-100vh) scale(1);opacity:0}
+}
+
+.container{
+    position:relative;
+    z-index:1;
+    max-width:500px;
+    margin:0 auto;
+    padding:20px;
+    min-height:100vh;
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* Header */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    margin-bottom:20px;
+}
+.logo{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.4rem;
+    letter-spacing:2px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.logo-icon{
+    position:relative;
+    width:24px;
+    height:32px;
+    background:linear-gradient(180deg,#8B6914 0%,#6B4E0A 50%,#4A3506 100%);
+    border-radius:40% 40% 35% 35% / 20% 20% 35% 35%;
+    box-shadow:0 2px 8px rgba(255,107,53,0.4);
+}
+.logo-icon::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    height:25%;
+    background:linear-gradient(180deg,#F5E6C8 0%,#D4BC8A 100%);
+    border-radius:50%;
+}
+.logo-icon::after{
+    content:'★';
+    position:absolute;
+    top:2px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:8px;
+    color:var(--gold);
+    text-shadow:0 0 4px var(--gold);
+}
+.logo-conga{color:var(--gold)}
+.logo-ritnome{
+    font-size:0.7rem;
+    color:var(--cream);
+    opacity:0.6;
+    letter-spacing:1px;
+}
+.pr-flag{
+    position:relative;
+    width:48px;
+    height:32px;
+    background:linear-gradient(
+        to bottom,
+        #ED0000 0%, #ED0000 20%,
+        #FFFFFF 20%, #FFFFFF 40%,
+        #ED0000 40%, #ED0000 60%,
+        #FFFFFF 60%, #FFFFFF 80%,
+        #ED0000 80%, #ED0000 100%
+    );
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,0.3);
+}
+.pr-flag::before{
+    content:'';
+    position:absolute;
+    left:0;
+    top:0;
+    width:0;
+    height:0;
+    border-style:solid;
+    border-width:16px 0 16px 20px;
+    border-color:transparent transparent transparent #0050F0;
+}
+.pr-flag::after{
+    content:'★';
+    position:absolute;
+    left:4px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:12px;
+    color:#FFFFFF;
+    text-shadow:0 0 2px rgba(0,0,0,0.3);
+}
+.pr-stripe{display:none}
+
+/* Hero */
+.hero{
+    text-align:center;
+    padding:20px 0 30px;
+}
+.hero-emoji{
+    position:relative;
+    width:80px;
+    height:110px;
+    margin:0 auto;
+    background:linear-gradient(180deg,#8B6914 0%,#6B4E0A 40%,#4A3506 100%);
+    border-radius:40% 40% 35% 35% / 20% 20% 35% 35%;
+    box-shadow:
+        inset 0 -15px 25px rgba(0,0,0,0.5),
+        inset 0 5px 10px rgba(255,255,255,0.15),
+        0 10px 40px rgba(255,107,53,0.4),
+        0 0 60px rgba(255,215,0,0.3);
+    animation:congaBounce 0.8s ease-in-out infinite;
+}
+.hero-emoji::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    height:22%;
+    background:linear-gradient(180deg,#F5E6C8 0%,#D4BC8A 50%,#B8A070 100%);
+    border-radius:50%;
+    box-shadow:
+        inset 0 3px 6px rgba(255,255,255,0.4),
+        inset 0 -3px 6px rgba(0,0,0,0.2),
+        0 0 20px rgba(255,215,0,0.3);
+}
+.hero-emoji::after{
+    content:'★';
+    position:absolute;
+    top:8px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:22px;
+    color:var(--gold);
+    text-shadow:0 0 10px var(--gold), 0 0 20px var(--orange);
+    animation:starPulse 1.5s ease-in-out infinite;
+}
+@keyframes congaBounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+}
+@keyframes starPulse{
+    0%,100%{opacity:1;text-shadow:0 0 10px var(--gold), 0 0 20px var(--orange)}
+    50%{opacity:0.8;text-shadow:0 0 20px var(--gold), 0 0 40px var(--orange), 0 0 60px var(--hot-pink)}
+}
+.hero-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:3rem;
+    letter-spacing:4px;
+    margin:15px 0 5px;
+    background:linear-gradient(135deg,var(--gold),var(--orange),var(--hot-pink));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    animation:shimmer 3s linear infinite;
+    background-size:200% auto;
+}
+@keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+.hero-tagline{
+    font-size:1rem;
+    color:var(--cream);
+    opacity:0.8;
+    letter-spacing:2px;
+    margin-bottom:5px;
+}
+.hero-sub{
+    font-size:0.75rem;
+    color:var(--tropical-teal);
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+/* Game Area */
+.game-area{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:20px 0;
+}
+
+/* BPM Display */
+.bpm-display{
+    margin-top:25px;
+    text-align:center;
+}
+.bpm-label{
+    font-size:0.65rem;
+    letter-spacing:3px;
+    color:var(--cream);
+    opacity:0.5;
+    text-transform:uppercase;
+}
+.bpm-value{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2.5rem;
+    color:var(--gold);
+    letter-spacing:4px;
+}
+.bpm-value span{
+    font-size:1rem;
+    opacity:0.6;
+}
+
+/* Score Display */
+.score-area{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:20px;
+}
+.score-box{
+    text-align:center;
+    padding:15px 25px;
+    background:rgba(255,255,255,0.05);
+    border-radius:16px;
+    border:1px solid rgba(255,215,0,0.2);
+}
+.score-label{
+    font-size:0.6rem;
+    letter-spacing:2px;
+    color:var(--cream);
+    opacity:0.5;
+    text-transform:uppercase;
+    margin-bottom:5px;
+}
+.score-value{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.8rem;
+    color:var(--gold);
+}
+
+/* Feedback */
+.feedback{
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:15px;
+}
+.feedback-text{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.5rem;
+    letter-spacing:4px;
+    opacity:0;
+    transition:opacity 0.1s;
+}
+.feedback-text.show{opacity:1}
+.feedback-text.perfect{color:var(--gold);text-shadow:0 0 20px var(--gold)}
+.feedback-text.good{color:var(--tropical-teal)}
+.feedback-text.early{color:var(--orange)}
+.feedback-text.late{color:var(--hot-pink)}
+.feedback-text.miss{color:#ff4444}
+.feedback-text.wrong{color:#ff4444}
+.feedback-text.start{color:var(--cream);opacity:0.7;font-size:1rem}
+
+/* Conga row on fire - 5+ streak */
+.conga-row.on-fire .tap-conga{
+    box-shadow:0 0 20px rgba(255,107,53,0.4), 0 4px 12px rgba(0,0,0,0.4);
+}
+.conga-row.on-fire .tap-conga.lit{
+    box-shadow:0 0 40px var(--gold), 0 0 60px var(--orange), 0 8px 20px rgba(255,107,53,0.6);
+}
+
+/* FUEGO MODE - 10+ streak 🔥 */
+.conga-row.fuego-mode .tap-conga{
+    animation:flamePulse 0.3s ease-in-out infinite alternate;
+    box-shadow:0 0 30px rgba(255,107,53,0.6), 0 0 50px rgba(255,69,0,0.4), 0 4px 12px rgba(0,0,0,0.4);
+}
+.conga-row.fuego-mode .tap-conga::before{
+    background:linear-gradient(180deg,#FFE4A0 0%,#FFD700 50%,#FF8C42 100%)!important;
+}
+.conga-row.fuego-mode .tap-conga.lit{
+    box-shadow:0 0 50px var(--gold), 0 0 80px var(--orange), 0 0 100px rgba(255,69,0,0.5), 0 8px 20px rgba(255,107,53,0.6);
+    animation:fuegoBurst 0.15s ease-out;
+}
+@keyframes flamePulse{
+    0%{transform:scale(1);filter:brightness(1)}
+    100%{transform:scale(1.03);filter:brightness(1.1)}
+}
+@keyframes fuegoBurst{
+    0%{transform:scale(1.2) translateY(-5px)}
+    50%{transform:scale(1.35) translateY(-8px)}
+    100%{transform:scale(1.2) translateY(-5px)}
+}
+
+/* Flame particles for fuego mode */
+.flame{
+    position:absolute;
+    width:8px;
+    height:12px;
+    background:linear-gradient(to top, #ff6600, #ffcc00, transparent);
+    border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+    opacity:0.8;
+    animation:flameRise 0.6s ease-out infinite;
+    pointer-events:none;
+}
+@keyframes flameRise{
+    0%{transform:translateY(0) scale(1);opacity:0.8}
+    100%{transform:translateY(-30px) scale(0.3);opacity:0}
+}
+
+/* Combo Multiplier Display */
+.combo-display{
+    position:fixed;
+    top:50%;
+    right:20px;
+    transform:translateY(-50%);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2.5rem;
+    color:var(--gold);
+    text-shadow:0 0 20px var(--gold), 0 0 40px var(--orange);
+    opacity:0;
+    transition:all 0.3s;
+    z-index:100;
+    pointer-events:none;
+}
+.combo-display.show{
+    opacity:1;
+    animation:comboPop 0.3s ease-out;
+}
+.combo-display.x2{color:#FFD700}
+.combo-display.x3{color:#FF8C42}
+.combo-display.x4{color:#FF6B35}
+.combo-display.x5{color:#FF1493;font-size:3rem}
+@keyframes comboPop{
+    0%{transform:translateY(-50%) scale(0.5)}
+    50%{transform:translateY(-50%) scale(1.2)}
+    100%{transform:translateY(-50%) scale(1)}
+}
+
+/* Streak fire indicator */
+.streak-badge{
+    position:absolute;
+    top:-8px;
+    right:-8px;
+    background:linear-gradient(135deg,#FF6B35,#FF1493);
+    color:white;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.7rem;
+    padding:2px 6px;
+    border-radius:10px;
+    opacity:0;
+    transform:scale(0);
+    transition:all 0.3s;
+}
+.streak-badge.show{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* Controls */
+.controls{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:auto;
+    padding:20px 0;
+}
+.start-btn{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:50px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.4rem;
+    letter-spacing:4px;
+    cursor:pointer;
+    background:linear-gradient(135deg,var(--gold),var(--orange));
+    color:var(--warm-black);
+    box-shadow:0 8px 30px rgba(255,215,0,0.4);
+    transition:all 0.3s;
+}
+.start-btn:active{transform:scale(0.98)}
+.start-btn:disabled{opacity:0.5;cursor:not-allowed}
+.start-btn.playing{
+    background:linear-gradient(135deg,var(--hot-pink),#ff6b9d);
+}
+
+/* BPM Selector */
+.bpm-selector{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+}
+.bpm-option{
+    padding:12px 20px;
+    border:2px solid rgba(255,215,0,0.3);
+    border-radius:12px;
+    background:transparent;
+    color:var(--cream);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1rem;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:all 0.2s;
+}
+.bpm-option:active{transform:scale(0.95)}
+.bpm-option.active{
+    border-color:var(--gold);
+    background:rgba(255,215,0,0.15);
+    color:var(--gold);
+}
+
+/* Pattern Selector */
+.pattern-selector{
+    display:flex;
+    gap:6px;
+    justify-content:center;
+    margin-bottom:10px;
+}
+.pattern-option{
+    padding:8px 14px;
+    border:2px solid rgba(255,20,147,0.3);
+    border-radius:20px;
+    background:transparent;
+    color:var(--cream);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.75rem;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:all 0.2s;
+}
+.pattern-option:active{transform:scale(0.95)}
+.pattern-option.active{
+    border-color:var(--hot-pink);
+    background:rgba(255,20,147,0.2);
+    color:var(--hot-pink);
+}
+
+/* Footer */
+.footer{
+    text-align:center;
+    padding:20px 0;
+    border-top:1px solid rgba(255,255,255,0.1);
+    margin-top:20px;
+}
+.footer-text{
+    font-size:0.7rem;
+    color:var(--cream);
+    opacity:0.4;
+    letter-spacing:1px;
+}
+.footer-text a{
+    color:var(--gold);
+    text-decoration:none;
+}
+.powered-by{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:10px;
+    padding:8px 16px;
+    background:rgba(255,215,0,0.08);
+    border:1px solid rgba(255,215,0,0.15);
+    border-radius:20px;
+}
+.powered-dot{
+    width:6px;
+    height:6px;
+    background:var(--gold);
+    border-radius:50%;
+    animation:pulse 1s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:0.3;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
+.powered-text{
+    font-size:0.6rem;
+    color:var(--cream);
+    opacity:0.6;
+    letter-spacing:1px;
+}
+.powered-text span{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.8rem;
+    color:var(--gold);
+    letter-spacing:2px;
+}
+
+/* 5 Tappable Congas - Diamond Layout */
+.conga-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:repeat(3,1fr);
+    gap:8px;
+    padding:15px;
+    width:280px;
+    height:280px;
+    margin:0 auto;
+    position:relative;
+}
+.tap-conga{
+    width:70px;
+    height:90px;
+    background:linear-gradient(180deg,#8B6914 0%,#6B4E0A 50%,#4A3506 100%);
+    border-radius:40% 40% 35% 35% / 25% 25% 40% 40%;
+    position:relative;
+    opacity:0.8;
+    transition:all 0.15s;
+    box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), inset 0 2px 5px rgba(255,255,255,0.1), 0 4px 12px rgba(0,0,0,0.4);
+    cursor:pointer;
+    border:none;
+    outline:none;
+    -webkit-tap-highlight-color:transparent;
+    justify-self:center;
+    align-self:center;
+}
+/* Unique colors per conga */
+.tap-conga:nth-child(1){grid-area:1/1;--conga-color:#FFD700;--conga-glow:rgba(255,215,0,0.6)}
+.tap-conga:nth-child(2){grid-area:1/3;--conga-color:#FF6B35;--conga-glow:rgba(255,107,53,0.6)}
+.tap-conga:nth-child(3){grid-area:2/2;--conga-color:#FF1493;--conga-glow:rgba(255,20,147,0.6)}
+.tap-conga:nth-child(4){grid-area:3/1;--conga-color:#00D9D9;--conga-glow:rgba(0,217,217,0.6)}
+.tap-conga:nth-child(5){grid-area:3/3;--conga-color:#9B59B6;--conga-glow:rgba(155,89,182,0.6)}
+/* Subtle idle glow per conga */
+.tap-conga:nth-child(1){box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 15px rgba(255,215,0,0.2), 0 4px 12px rgba(0,0,0,0.4)}
+.tap-conga:nth-child(2){box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 15px rgba(255,107,53,0.2), 0 4px 12px rgba(0,0,0,0.4)}
+.tap-conga:nth-child(3){box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 15px rgba(255,20,147,0.2), 0 4px 12px rgba(0,0,0,0.4)}
+.tap-conga:nth-child(4){box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 15px rgba(0,217,217,0.2), 0 4px 12px rgba(0,0,0,0.4)}
+.tap-conga:nth-child(5){box-shadow:inset 0 -8px 15px rgba(0,0,0,0.4), 0 0 15px rgba(155,89,182,0.2), 0 4px 12px rgba(0,0,0,0.4)}
+.tap-conga::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    height:28%;
+    background:linear-gradient(180deg,#D4BC8A 0%,#B8A070 100%);
+    border-radius:50%;
+    box-shadow:inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2);
+    pointer-events:none;
+}
+.tap-conga::after{
+    content:'';
+    position:absolute;
+    top:6%;
+    left:50%;
+    transform:translateX(-50%);
+    width:60%;
+    height:12%;
+    background:radial-gradient(ellipse,rgba(255,255,255,0.4) 0%,transparent 70%);
+    border-radius:50%;
+    pointer-events:none;
+}
+/* Tapped state with unique color */
+.tap-conga.tapped{
+    opacity:1;
+    transform:scale(1.15) translateY(-4px);
+    box-shadow:0 0 40px var(--conga-glow), 0 0 60px var(--conga-glow), 0 8px 20px rgba(0,0,0,0.4);
+}
+.tap-conga.lit{
+    opacity:1;
+    transform:scale(1.2) translateY(-5px);
+    background:linear-gradient(180deg,#FFD700 0%,#FF8C42 50%,#E65C00 100%);
+    box-shadow:0 0 30px var(--gold), 0 0 50px var(--orange), 0 8px 20px rgba(255,107,53,0.6);
+}
+.tap-conga.lit::before{
+    background:linear-gradient(180deg,#FFF8E7 0%,#FFE4A0 100%);
+    box-shadow:0 0 15px rgba(255,215,0,0.5);
+}
+/* Color burst ring animation */
+.color-burst{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    border:3px solid var(--burst-color,#FFD700);
+    opacity:1;
+    animation:burstRing 0.5s ease-out forwards;
+    pointer-events:none;
+}
+@keyframes burstRing{
+    0%{width:20px;height:20px;opacity:1}
+    100%{width:150px;height:150px;opacity:0}
+}
+/* Spark particles */
+.spark{
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    pointer-events:none;
+    animation:sparkFly 0.6s ease-out forwards;
+}
+@keyframes sparkFly{
+    0%{opacity:1;transform:translate(0,0) scale(1)}
+    100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0)}
+}
+/* Callout popup */
+.callout{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.8rem;
+    letter-spacing:3px;
+    color:var(--gold);
+    text-shadow:0 0 20px var(--gold), 0 0 40px var(--orange);
+    pointer-events:none;
+    animation:calloutPop 0.8s ease-out forwards;
+    z-index:100;
+    white-space:nowrap;
+}
+@keyframes calloutPop{
+    0%{opacity:0;transform:translate(-50%,-50%) scale(0.5)}
+    20%{opacity:1;transform:translate(-50%,-50%) scale(1.2)}
+    40%{transform:translate(-50%,-50%) scale(1)}
+    100%{opacity:0;transform:translate(-50%,-80%) scale(1)}
+}
+.tap-conga.hit-correct{
+    animation:hitCorrect 0.2s ease-out;
+}
+.tap-conga.hit-wrong{
+    animation:hitWrong 0.3s ease-out;
+}
+@keyframes hitCorrect{
+    0%{transform:scale(1.2) translateY(-5px)}
+    50%{transform:scale(1.4) translateY(-10px)}
+    100%{transform:scale(1.2) translateY(-5px)}
+}
+@keyframes hitWrong{
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-6px)}
+    40%{transform:translateX(6px)}
+    60%{transform:translateX(-4px)}
+    80%{transform:translateX(4px)}
+}
+.tap-conga:active{
+    transform:scale(0.95);
+}
+
+/* Conga labels */
+.conga-label{
+    position:absolute;
+    bottom:-20px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.7rem;
+    color:var(--cream);
+    opacity:0.4;
+    letter-spacing:1px;
+}
+
+.tap-conga:active{
+    transform:scale(0.95);
+}
+
+/* Conga labels */
+.conga-label{
+    position:absolute;
+    bottom:-20px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:0.7rem;
+    color:var(--cream);
+    opacity:0.4;
+    letter-spacing:1px;
+}
+
+/* Instructions overlay */
+.instructions{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.9);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:100;
+    padding:20px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.3s;
+}
+.instructions.show{opacity:1;pointer-events:auto}
+.instructions-card{
+    background:var(--deep-purple);
+    border:2px solid var(--gold);
+    border-radius:24px;
+    padding:30px;
+    max-width:350px;
+    text-align:center;
+}
+.instructions-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.8rem;
+    color:var(--gold);
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+.instructions-text{
+    font-size:0.85rem;
+    color:var(--cream);
+    opacity:0.8;
+    line-height:1.6;
+    margin-bottom:20px;
+}
+.instructions-btn{
+    padding:14px 40px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,var(--gold),var(--orange));
+    color:var(--warm-black);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.1rem;
+    letter-spacing:2px;
+    cursor:pointer;
+}
+
+@media(min-width:400px){
+    .hero-title{font-size:3.5rem}
+    .conga-row{width:320px;height:320px}
+    .tap-conga{width:80px;height:100px}
+}
+
+/* Screen shake */
+@keyframes shake{
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-8px) rotate(-1deg)}
+    40%{transform:translateX(8px) rotate(1deg)}
+    60%{transform:translateX(-6px) rotate(-0.5deg)}
+    80%{transform:translateX(6px) rotate(0.5deg)}
+}
+.shake{animation:shake 0.4s ease-out}
+
+/* Confetti */
+.confetti-container{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:200;
+    overflow:hidden;
+}
+.confetti{
+    position:absolute;
+    width:10px;
+    height:10px;
+    opacity:0;
+}
+@keyframes confettiFall{
+    0%{transform:translateY(-100px) rotate(0deg) scale(1);opacity:1}
+    100%{transform:translateY(100vh) rotate(720deg) scale(0.5);opacity:0}
+}
+
+/* Tap particles */
+.tap-particle{
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:50;
+}
+@keyframes particleBurst{
+    0%{transform:translate(-50%,-50%) scale(1);opacity:1}
+    100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0}
+}
+
+/* Streak fire effect */
+.streak-fire{
+    position:absolute;
+    bottom:100%;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:1.5rem;
+    opacity:0;
+    pointer-events:none;
+    animation:none;
+}
+.streak-fire.show{
+    animation:fireRise 0.6s ease-out forwards;
+}
+@keyframes fireRise{
+    0%{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}
+    100%{opacity:0;transform:translateX(-50%) translateY(-40px) scale(1.5)}
+}
+
+/* Milestone popup */
+.milestone{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2.5rem;
+    letter-spacing:4px;
+    color:var(--gold);
+    text-shadow:0 0 30px var(--gold),0 0 60px var(--orange);
+    z-index:150;
+    pointer-events:none;
+    white-space:nowrap;
+}
+.milestone.show{
+    animation:milestonePopup 1s ease-out forwards;
+}
+@keyframes milestonePopup{
+    0%{transform:translate(-50%,-50%) scale(0);opacity:0}
+    20%{transform:translate(-50%,-50%) scale(1.3);opacity:1}
+    40%{transform:translate(-50%,-50%) scale(1);opacity:1}
+    100%{transform:translate(-50%,-50%) scale(1.5);opacity:0}
+}
+
+/* Beat pulse on container */
+.game-area.beat-pulse{
+    animation:beatPulse 0.1s ease-out;
+}
+@keyframes beatPulse{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.02)}
+    100%{transform:scale(1)}
+}
+</style>
+</head>
+<body>
+
+<div class="confetti-container" id="confettiContainer"></div>
+<div class="milestone" id="milestone"></div>
+
+<div class="bg-particles">
+    <div class="particle" style="left:5%"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+</div>
+
+<div class="container">
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <span class="logo-conga">CONGA</span>
+        </div>
+        <div class="pr-flag">
+            <div class="pr-stripe pr-red"></div>
+            <div class="pr-stripe pr-white"></div>
+            <div class="pr-stripe pr-blue"></div>
+            <div class="pr-stripe pr-white"></div>
+            <div class="pr-stripe pr-red"></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-emoji"></div>
+        <h1 class="hero-title">RITNOME CONGA</h1>
+        <p class="hero-tagline">Train Your Rhythm</p>
+        <p class="hero-sub">Born in Puerto Rico 🇵🇷</p>
+    </section>
+
+    <div class="game-area">
+        <div class="conga-row" id="congaRow">
+            <button class="tap-conga" id="conga0" data-index="0">
+                <span class="conga-label">1</span>
+            </button>
+            <button class="tap-conga" id="conga1" data-index="1">
+                <span class="conga-label">2</span>
+            </button>
+            <button class="tap-conga" id="conga2" data-index="2">
+                <span class="conga-label">3</span>
+            </button>
+            <button class="tap-conga" id="conga3" data-index="3">
+                <span class="conga-label">4</span>
+            </button>
+            <button class="tap-conga" id="conga4" data-index="4">
+                <span class="conga-label">5</span>
+            </button>
+        </div>
+
+        <div class="bpm-display">
+            <div class="bpm-label">Tempo</div>
+            <div class="bpm-value"><span id="currentBpm">90</span> <span>BPM</span></div>
+        </div>
+
+        <div class="score-area">
+            <div class="score-box">
+                <div class="score-label">Streak</div>
+                <div class="score-value" id="streak">0</div>
+            </div>
+            <div class="score-box">
+                <div class="score-label">Best</div>
+                <div class="score-value" id="best">0</div>
+            </div>
+        </div>
+
+        <div class="feedback">
+            <div class="feedback-text" id="feedback"></div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <div class="pattern-selector">
+            <button class="pattern-option active" data-pattern="reggaeton">REGGAETON</button>
+            <button class="pattern-option" data-pattern="clave">CLAVE</button>
+            <button class="pattern-option" data-pattern="bomba">BOMBA</button>
+        </div>
+        <div class="bpm-selector">
+            <button class="bpm-option" data-bpm="60">60</button>
+            <button class="bpm-option active" data-bpm="90">90</button>
+            <button class="bpm-option" data-bpm="120">120</button>
+        </div>
+        <button class="start-btn" id="startBtn">🥁 START</button>
+    </div>
+
+    <footer class="footer">
+        <p class="footer-text">© 2025 <a href="https://gostar.digital">GoStar Digital LLC</a> 🇵🇷</p>
+        <div class="powered-by">
+            <div class="powered-dot"></div>
+            <div class="powered-text">Powered by <span>RITNOME™</span></div>
+        </div>
+    </footer>
+</div>
+
+<div class="instructions" id="instructions">
+    <div class="instructions-card">
+        <div class="instructions-title">HOW TO PLAY</div>
+        <p class="instructions-text">
+            Tap the GLOWING conga ON THE BEAT! 🥁<br><br>
+            Watch which drums light up — tap the right one at the right time!<br><br>
+            Build your streak. Feel the rhythm. Train like a boricua! 🇵🇷
+        </p>
+        <button class="instructions-btn" id="gotItBtn">¡PA'LANTE!</button>
+    </div>
+</div>
+
+<script>
+(function(){
+    var startBtn = document.getElementById('startBtn');
+    var feedback = document.getElementById('feedback');
+    var streakEl = document.getElementById('streak');
+    var bestEl = document.getElementById('best');
+    var currentBpmEl = document.getElementById('currentBpm');
+    var instructions = document.getElementById('instructions');
+    var gotItBtn = document.getElementById('gotItBtn');
+    var bpmOptions = document.querySelectorAll('.bpm-option');
+    var patternOptions = document.querySelectorAll('.pattern-option');
+    var congaRow = document.getElementById('congaRow');
+    var confettiContainer = document.getElementById('confettiContainer');
+    var milestone = document.getElementById('milestone');
+    var gameArea = document.querySelector('.game-area');
+    var tapCongas = [
+        document.getElementById('conga0'),
+        document.getElementById('conga1'),
+        document.getElementById('conga2'),
+        document.getElementById('conga3'),
+        document.getElementById('conga4')
+    ];
+    
+    // Rhythm patterns - ONE conga per beat (index 0-4)
+    var rhythmPatterns = {
+        // Reggaeton dembow - bouncy feel
+        reggaeton: [0, 2, 4, 2, 1, 3, 4, 3, 0, 2, 4, 2, 1, 3, 0, 3],
+        // Classic clave - 3-2 son clave pattern
+        clave: [0, 4, 2, 0, 3, 1, 4, 2, 0, 4, 2, 0, 3, 1, 4, 2],
+        // Bomba sicá - Puerto Rican traditional
+        bomba: [0, 2, 4, 1, 3, 0, 4, 2, 1, 3, 0, 2, 4, 3, 1, 0],
+        // Cascading wave
+        wave: [0, 1, 2, 3, 4, 3, 2, 1],
+        // Random jumping
+        salsa: [2, 0, 4, 1, 3, 2, 0, 4, 3, 1, 2, 4, 0, 3, 1, 2]
+    };
+    var currentPattern = 'reggaeton';
+    var patternIndex = 0;
+    var currentlyLit = -1; // Which conga is lit (-1 = none)
+    var tappedThisBeat = false; // Has player tapped this beat
+
+    var bpm = 90;
+    var beatInterval = null;
+    var isPlaying = false;
+    var beatIndex = 0;
+    var lastBeatTime = 0;
+    var streak = 0;
+    var best = parseInt(localStorage.getItem('conga-best')) || 0;
+    var feedbackTimeout = null;
+    var audioCtx = null;
+
+    bestEl.textContent = best;
+
+    // Show instructions on first visit
+    if (!localStorage.getItem('conga-seen')) {
+        instructions.classList.add('show');
+    }
+
+    gotItBtn.onclick = function() {
+        instructions.classList.remove('show');
+        localStorage.setItem('conga-seen', 'true');
+    };
+
+    // BPM selection
+    bpmOptions.forEach(function(btn) {
+        btn.onclick = function() {
+            if (isPlaying) return;
+            bpmOptions.forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            bpm = parseInt(btn.dataset.bpm);
+            currentBpmEl.textContent = bpm;
+        };
+    });
+
+    // Pattern selection
+    patternOptions.forEach(function(btn) {
+        btn.onclick = function() {
+            if (isPlaying) return;
+            patternOptions.forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            currentPattern = btn.dataset.pattern;
+        };
+    });
+
+    // Audio - Realistic Conga Synthesis
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    // Create noise buffer for slap attack
+    var noiseBuffer = null;
+    function createNoiseBuffer() {
+        if (noiseBuffer || !audioCtx) return;
+        var bufferSize = audioCtx.sampleRate * 0.1;
+        noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        var output = noiseBuffer.getChannelData(0);
+        for (var i = 0; i < bufferSize; i++) {
+            output[i] = Math.random() * 2 - 1;
+        }
+    }
+
+    // Beat metronome - subtle clave-style click
+    function playBeat() {
+        if (!audioCtx) return;
+        var now = audioCtx.currentTime;
+        var osc = audioCtx.createOscillator();
+        var gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, now);
+        osc.frequency.exponentialRampToValueAtTime(400, now + 0.03);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.06);
+    }
+
+    // Each conga has unique pitch (low to high: 0→4)
+    // Tumba (low) → Conga → Quinto (high)
+    var congaPitches = [
+        { freq: 120, freqDecay: 80, name: 'tumba' },      // Conga 1 - deep bass
+        { freq: 160, freqDecay: 100, name: 'segundo' },   // Conga 2 
+        { freq: 200, freqDecay: 130, name: 'conga' },     // Conga 3 - middle
+        { freq: 260, freqDecay: 170, name: 'requinto' },  // Conga 4
+        { freq: 340, freqDecay: 220, name: 'quinto' }     // Conga 5 - high slap
+    ];
+
+    function playCongaHit(congaIndex, quality) {
+        if (!audioCtx) return;
+        createNoiseBuffer();
+        var now = audioCtx.currentTime;
+        
+        var pitch = congaPitches[congaIndex] || congaPitches[2];
+        
+        // Adjust volume/decay based on quality
+        var volume = quality === 'perfect' ? 0.7 : quality === 'good' ? 0.6 : 0.4;
+        var decay = quality === 'perfect' ? 0.35 : quality === 'good' ? 0.28 : 0.15;
+        var noiseVol = quality === 'perfect' ? 0.3 : 0.2;
+
+        // Main body tone
+        var osc = audioCtx.createOscillator();
+        var oscGain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(pitch.freq, now);
+        osc.frequency.exponentialRampToValueAtTime(pitch.freqDecay, now + decay);
+        oscGain.gain.setValueAtTime(0, now);
+        oscGain.gain.linearRampToValueAtTime(volume, now + 0.005);
+        oscGain.gain.exponentialRampToValueAtTime(0.001, now + decay);
+        osc.connect(oscGain);
+        oscGain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + decay + 0.05);
+
+        // Harmonic overtone (more prominent on higher congas)
+        var harmonic = 2.2 + (congaIndex * 0.15);
+        var osc2 = audioCtx.createOscillator();
+        var osc2Gain = audioCtx.createGain();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(pitch.freq * harmonic, now);
+        osc2.frequency.exponentialRampToValueAtTime(pitch.freqDecay * 1.5, now + decay * 0.5);
+        osc2Gain.gain.setValueAtTime(0, now);
+        osc2Gain.gain.linearRampToValueAtTime(volume * (0.25 + congaIndex * 0.05), now + 0.003);
+        osc2Gain.gain.exponentialRampToValueAtTime(0.001, now + decay * 0.5);
+        osc2.connect(osc2Gain);
+        osc2Gain.connect(audioCtx.destination);
+        osc2.start(now);
+        osc2.stop(now + decay);
+
+        // Noise attack (more slap on higher congas)
+        if (noiseBuffer) {
+            var noise = audioCtx.createBufferSource();
+            var noiseGain = audioCtx.createGain();
+            var noiseFilter = audioCtx.createBiquadFilter();
+            noise.buffer = noiseBuffer;
+            noiseFilter.type = 'bandpass';
+            noiseFilter.frequency.value = pitch.freq * (3 + congaIndex * 0.5);
+            noiseFilter.Q.value = 1.5;
+            var attackVol = noiseVol * (0.8 + congaIndex * 0.1);
+            noiseGain.gain.setValueAtTime(attackVol, now);
+            noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+            noise.connect(noiseFilter);
+            noiseFilter.connect(noiseGain);
+            noiseGain.connect(audioCtx.destination);
+            noise.start(now);
+            noise.stop(now + 0.05);
+        }
+    }
+
+    // Wrong tap sound - dissonant
+    function playWrongSound() {
+        if (!audioCtx) return;
+        var now = audioCtx.currentTime;
+        var osc = audioCtx.createOscillator();
+        var gain = audioCtx.createGain();
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(150, now);
+        osc.frequency.linearRampToValueAtTime(80, now + 0.15);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.2);
+    }
+
+    // ============ VISUAL EFFECTS ============
+    
+    // Particle colors
+    var particleColors = ['#FFD700', '#FF6B35', '#FF1493', '#00D9D9', '#FF8C42'];
+    var congaColors = ['#FFD700', '#FF6B35', '#FF1493', '#00D9D9', '#9B59B6'];
+    
+    // Expanded Boricua callouts! 🇵🇷
+    var callouts = [
+        '¡WEPA!', '¡FUEGO!', '¡DALE!', '¡ASÍ!', '¡OYE!',
+        '¡DURO!', '¡BÁILALO!', '¡AZÚCAR!', '¡PA\' LANTE!',
+        '¡QUÉ NOTA!', '¡DIMELO!', '¡SABROSO!', '¡BORICUA!',
+        '🔥', '💥', '⚡', '🎯', '💪', '🇵🇷'
+    ];
+    var milestoneCallouts = [
+        '¡TREMENDO!', '¡BRUTAL!', '¡CANDELA!', '¡FENOMENAL!',
+        '¡LEYENDA!', '¡MAESTRO!', '¡IMPARABLE!', '🔥🔥🔥'
+    ];
+    var calloutCounter = 0;
+    
+    // Combo multiplier system
+    var comboMultiplier = 1;
+    var comboDisplay = null;
+    
+    function initComboDisplay() {
+        if (!comboDisplay) {
+            comboDisplay = document.createElement('div');
+            comboDisplay.className = 'combo-display';
+            comboDisplay.id = 'comboDisplay';
+            document.body.appendChild(comboDisplay);
+        }
+    }
+    
+    function updateCombo(currentStreak) {
+        initComboDisplay();
+        var oldMultiplier = comboMultiplier;
+        
+        if (currentStreak >= 20) {
+            comboMultiplier = 5;
+        } else if (currentStreak >= 15) {
+            comboMultiplier = 4;
+        } else if (currentStreak >= 10) {
+            comboMultiplier = 3;
+        } else if (currentStreak >= 5) {
+            comboMultiplier = 2;
+        } else {
+            comboMultiplier = 1;
+        }
+        
+        if (comboMultiplier > 1) {
+            comboDisplay.textContent = comboMultiplier + 'X';
+            comboDisplay.className = 'combo-display show x' + comboMultiplier;
+            
+            // Flash when multiplier increases
+            if (comboMultiplier > oldMultiplier) {
+                comboDisplay.style.animation = 'none';
+                setTimeout(function() {
+                    comboDisplay.style.animation = 'comboPop 0.3s ease-out';
+                }, 10);
+            }
+        } else {
+            comboDisplay.classList.remove('show');
+        }
+        
+        return comboMultiplier;
+    }
+    
+    function resetCombo() {
+        comboMultiplier = 1;
+        if (comboDisplay) {
+            comboDisplay.classList.remove('show');
+        }
+    }
+    
+    // Fire mode controller
+    var flameInterval = null;
+    
+    function setFireMode(currentStreak) {
+        if (currentStreak >= 10) {
+            // FUEGO MODE! 🔥🔥🔥
+            congaRow.classList.remove('on-fire');
+            congaRow.classList.add('fuego-mode');
+            startFlames();
+        } else if (currentStreak >= 5) {
+            // Regular fire
+            congaRow.classList.remove('fuego-mode');
+            congaRow.classList.add('on-fire');
+            stopFlames();
+        } else {
+            congaRow.classList.remove('on-fire');
+            congaRow.classList.remove('fuego-mode');
+            stopFlames();
+        }
+    }
+    
+    function startFlames() {
+        if (flameInterval) return;
+        flameInterval = setInterval(function() {
+            tapCongas.forEach(function(conga) {
+                if (Math.random() > 0.5) {
+                    createFlame(conga);
+                }
+            });
+        }, 200);
+    }
+    
+    function stopFlames() {
+        if (flameInterval) {
+            clearInterval(flameInterval);
+            flameInterval = null;
+        }
+    }
+    
+    function createFlame(congaElement) {
+        var flame = document.createElement('div');
+        flame.className = 'flame';
+        flame.style.left = (20 + Math.random() * 60) + '%';
+        flame.style.bottom = '60%';
+        congaElement.appendChild(flame);
+        setTimeout(function() { flame.remove(); }, 600);
+    }
+    
+    // Tap particles burst from a specific conga
+    function createTapParticles(congaElement) {
+        var rect = congaElement.getBoundingClientRect();
+        var centerX = rect.left + rect.width / 2;
+        var centerY = rect.top + rect.height / 3;
+        
+        for (var i = 0; i < 6; i++) {
+            var particle = document.createElement('div');
+            particle.className = 'tap-particle';
+            particle.style.left = centerX + 'px';
+            particle.style.top = centerY + 'px';
+            particle.style.background = particleColors[Math.floor(Math.random() * particleColors.length)];
+            
+            var angle = (i / 6) * Math.PI * 2;
+            var distance = 40 + Math.random() * 30;
+            particle.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+            particle.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
+            particle.style.animation = 'particleBurst 0.3s ease-out forwards';
+            
+            document.body.appendChild(particle);
+            setTimeout(function(p) { p.remove(); }.bind(null, particle), 300);
+        }
+    }
+    
+    // Color burst ring effect
+    function createColorBurst(congaElement, congaIndex) {
+        var burst = document.createElement('div');
+        burst.className = 'color-burst';
+        burst.style.setProperty('--burst-color', congaColors[congaIndex]);
+        congaElement.appendChild(burst);
+        setTimeout(function() { burst.remove(); }, 500);
+    }
+    
+    // Spark particles flying off
+    function createSparks(congaElement, congaIndex) {
+        var color = congaColors[congaIndex];
+        for (var i = 0; i < 8; i++) {
+            var spark = document.createElement('div');
+            spark.className = 'spark';
+            spark.style.background = color;
+            spark.style.boxShadow = '0 0 6px ' + color;
+            spark.style.left = '50%';
+            spark.style.top = '30%';
+            
+            var angle = (i / 8) * Math.PI * 2 + (Math.random() - 0.5) * 0.5;
+            var distance = 50 + Math.random() * 40;
+            spark.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+            spark.style.setProperty('--ty', Math.sin(angle) * distance - 20 + 'px');
+            
+            congaElement.appendChild(spark);
+            setTimeout(function(s) { s.remove(); }.bind(null, spark), 600);
+        }
+    }
+    
+    // Random callout popup
+    function showCallout(congaElement, forceShow) {
+        calloutCounter++;
+        // Show callout every 3rd tap (not too spammy) unless forced
+        if (!forceShow && calloutCounter % 3 !== 0) return;
+        
+        var callout = document.createElement('div');
+        callout.className = 'callout';
+        
+        // Use milestone callouts if streak is high
+        var calloutList = (streak >= 10) ? milestoneCallouts : callouts;
+        callout.textContent = calloutList[Math.floor(Math.random() * calloutList.length)];
+        
+        congaElement.appendChild(callout);
+        setTimeout(function() { callout.remove(); }, 800);
+    }
+    
+    // Show callout on any conga (for game mode)
+    function showRandomCallout() {
+        var randomConga = tapCongas[Math.floor(Math.random() * tapCongas.length)];
+        showCallout(randomConga, true);
+    }
+    
+    // Combined free play effects
+    function freePlayTapEffects(congaElement, congaIndex) {
+        congaElement.classList.add('tapped');
+        createColorBurst(congaElement, congaIndex);
+        createSparks(congaElement, congaIndex);
+        showCallout(congaElement);
+        setTimeout(function() {
+            congaElement.classList.remove('tapped');
+        }, 150);
+    }
+    
+    // Screen shake
+    function screenShake() {
+        document.body.classList.add('shake');
+        setTimeout(function() { document.body.classList.remove('shake'); }, 400);
+    }
+    
+    // Conga row glow when on fire - now uses setFireMode
+    function setOnFire(on) {
+        if (!on) {
+            congaRow.classList.remove('on-fire');
+            congaRow.classList.remove('fuego-mode');
+            stopFlames();
+            resetCombo();
+        }
+    }
+    
+    // Confetti explosion
+    function launchConfetti() {
+        var colors = ['#FFD700', '#FF6B35', '#FF1493', '#00D9D9', '#FF8C42', '#32CD32'];
+        var shapes = ['circle', 'square'];
+        
+        for (var i = 0; i < 50; i++) {
+            var confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = (20 + Math.random() * 60) + '%';
+            confetti.style.top = '-20px';
+            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)] === 'circle' ? '50%' : '2px';
+            confetti.style.width = (6 + Math.random() * 8) + 'px';
+            confetti.style.height = confetti.style.width;
+            confetti.style.animation = 'confettiFall ' + (1.5 + Math.random() * 1.5) + 's ease-out forwards';
+            confetti.style.animationDelay = (Math.random() * 0.3) + 's';
+            
+            confettiContainer.appendChild(confetti);
+            setTimeout(function(c) { c.remove(); }.bind(null, confetti), 3500);
+        }
+    }
+    
+    // Milestone popup
+    var milestoneTimeout = null;
+    function showMilestone(text) {
+        clearTimeout(milestoneTimeout);
+        milestone.textContent = text;
+        milestone.classList.remove('show');
+        void milestone.offsetWidth;
+        milestone.classList.add('show');
+        milestoneTimeout = setTimeout(function() { milestone.classList.remove('show'); }, 1000);
+    }
+    
+    // Check streak milestones
+    var lastMilestone = 0;
+    function checkMilestone(currentStreak) {
+        // Update combo multiplier
+        updateCombo(currentStreak);
+        
+        // Update fire mode
+        setFireMode(currentStreak);
+        
+        if (currentStreak >= 5 && lastMilestone < 5) {
+            showMilestone('¡FUEGO! 🔥 2X');
+            lastMilestone = 5;
+        }
+        if (currentStreak >= 10 && lastMilestone < 10) {
+            showMilestone('¡CANDELA! 🔥🔥 3X');
+            launchConfetti();
+            lastMilestone = 10;
+        }
+        if (currentStreak >= 15 && lastMilestone < 15) {
+            showMilestone('¡BRUTAL! 🔥🔥🔥 4X');
+            launchConfetti();
+            lastMilestone = 15;
+        }
+        if (currentStreak >= 20 && lastMilestone < 20) {
+            showMilestone('¡BORICUA! 🇵🇷🔥 5X');
+            launchConfetti();
+            launchConfetti();
+            lastMilestone = 20;
+        }
+        if (currentStreak >= 50 && lastMilestone < 50) {
+            showMilestone('¡LEYENDA! 👑🔥🔥🔥');
+            launchConfetti();
+            launchConfetti();
+            launchConfetti();
+            lastMilestone = 50;
+        }
+        if (currentStreak === 0) {
+            lastMilestone = 0;
+            setOnFire(false);
+        }
+    }
+    
+    // Beat pulse on game area
+    function beatPulse() {
+        gameArea.classList.remove('beat-pulse');
+        void gameArea.offsetWidth;
+        gameArea.classList.add('beat-pulse');
+    }
+
+    // Vibration feedback
+    function vibrate(duration) {
+        if (navigator.vibrate) {
+            navigator.vibrate(duration);
+        }
+    }
+
+    // Game loop
+    function startGame() {
+        initAudio();
+        isPlaying = true;
+        streak = 0;
+        streakEl.textContent = 0;
+        patternIndex = 0;
+        lastMilestone = 0;
+        currentlyLit = -1;
+        tappedThisBeat = false;
+        setOnFire(false);
+        startBtn.textContent = '⏹ STOP';
+        startBtn.classList.add('playing');
+        bpmOptions.forEach(function(b) { b.style.pointerEvents = 'none'; b.style.opacity = '0.5'; });
+        patternOptions.forEach(function(b) { b.style.pointerEvents = 'none'; b.style.opacity = '0.5'; });
+
+        var interval = 60000 / bpm;
+        
+        function tick() {
+            // Check if player missed previous beat
+            if (currentlyLit >= 0 && !tappedThisBeat && patternIndex > 0) {
+                streak = 0;
+                streakEl.textContent = streak;
+                showFeedback('miss');
+                checkMilestone(streak);
+            }
+            
+            lastBeatTime = Date.now();
+            tappedThisBeat = false;
+            
+            // Clear all congas
+            tapCongas.forEach(function(c) { c.classList.remove('lit'); });
+            
+            // Light up ONE conga based on current pattern
+            var pattern = rhythmPatterns[currentPattern];
+            currentlyLit = pattern[patternIndex % pattern.length];
+            tapCongas[currentlyLit].classList.add('lit');
+            
+            playBeat();
+            beatPulse();
+            patternIndex++;
+        }
+
+        tick();
+        beatInterval = setInterval(tick, interval);
+    }
+
+    function stopGame() {
+        isPlaying = false;
+        clearInterval(beatInterval);
+        beatInterval = null;
+        startBtn.textContent = '🥁 START';
+        startBtn.classList.remove('playing');
+        bpmOptions.forEach(function(b) { b.style.pointerEvents = 'auto'; b.style.opacity = '1'; });
+        patternOptions.forEach(function(b) { b.style.pointerEvents = 'auto'; b.style.opacity = '1'; });
+        tapCongas.forEach(function(c) { c.classList.remove('lit'); });
+        setOnFire(false);
+        lastMilestone = 0;
+        patternIndex = 0;
+        currentlyLit = -1;
+    }
+
+    startBtn.onclick = function() {
+        if (isPlaying) {
+            stopGame();
+        } else {
+            startGame();
+        }
+    };
+
+    // Conga tap handling
+    function handleCongaTap(congaIndex, congaElement) {
+        initAudio();
+        
+        // Play sound FIRST
+        playCongaHit(congaIndex, 'good');
+        
+        // Visual feedback on tap
+        createTapParticles(congaElement);
+        vibrate(20);
+        
+        // Add hit animation
+        congaElement.classList.add('hit-correct');
+        setTimeout(function() {
+            congaElement.classList.remove('hit-correct');
+        }, 200);
+
+        if (!isPlaying) {
+            // FREE PLAY MODE - add extra effects safely
+            try {
+                freePlayTapEffects(congaElement, congaIndex);
+            } catch(e) {}
+            showFeedback('start');
+            return;
+        }
+
+        // Check if this conga is lit
+        var isLit = currentlyLit === congaIndex;
+        
+        if (!isLit) {
+            // Wrong conga!
+            congaElement.classList.remove('hit-correct');
+            congaElement.classList.add('hit-wrong');
+            setTimeout(function() {
+                congaElement.classList.remove('hit-wrong');
+            }, 300);
+            
+            playWrongSound();
+            showFeedback('wrong');
+            streak = 0;
+            streakEl.textContent = streak;
+            checkMilestone(streak);
+            return;
+        }
+
+        // Correct conga! Check timing
+        var now = Date.now();
+        var interval = 60000 / bpm;
+        var timeSinceBeat = now - lastBeatTime;
+        var timeToNextBeat = interval - timeSinceBeat;
+        var tolerance = interval * 0.35; // Slightly more forgiving
+
+        var quality;
+        if (timeSinceBeat < tolerance || timeToNextBeat < tolerance) {
+            if (timeSinceBeat < tolerance * 0.4 || timeToNextBeat < tolerance * 0.4) {
+                quality = 'perfect';
+                streak++;
+                screenShake();
+                vibrate(40);
+            } else {
+                quality = 'good';
+                streak++;
+            }
+            tappedThisBeat = true;
+        } else if (timeSinceBeat < interval * 0.5) {
+            quality = 'late';
+            streak = 0;
+        } else {
+            quality = 'early';
+            streak = 0;
+        }
+
+        playCongaHit(congaIndex, quality);
+        showFeedback(quality);
+        streakEl.textContent = streak;
+        checkMilestone(streak);
+
+        if (streak > best) {
+            best = streak;
+            bestEl.textContent = best;
+            localStorage.setItem('conga-best', best);
+        }
+    }
+
+    function showFeedback(quality) {
+        clearTimeout(feedbackTimeout);
+        var text = quality === 'perfect' ? '¡PERFECTO!' : 
+                   quality === 'good' ? '¡BUENO!' : 
+                   quality === 'early' ? 'EARLY' : 
+                   quality === 'late' ? 'LATE' :
+                   quality === 'wrong' ? '¡WRONG!' :
+                   quality === 'miss' ? 'MISS!' :
+                   quality === 'start' ? 'TAP START ↓' : '';
+        feedback.textContent = text;
+        feedback.className = 'feedback-text show ' + quality;
+        feedbackTimeout = setTimeout(function() {
+            feedback.classList.remove('show');
+        }, 400);
+    }
+
+    // Attach tap handlers to each conga
+    tapCongas.forEach(function(conga, index) {
+        conga.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            handleCongaTap(index, conga);
+        }, { passive: false });
+
+        conga.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            handleCongaTap(index, conga);
+        });
+
+        conga.addEventListener('touchend', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+    });
+
+    // Make sure buttons work on mobile
+    startBtn.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        startBtn.click();
+    }, { passive: false });
+
+    gotItBtn.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        gotItBtn.click();
+    }, { passive: false });
+
+    bpmOptions.forEach(function(btn) {
+        btn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            btn.click();
+        }, { passive: false });
+    });
+
+    patternOptions.forEach(function(btn) {
+        btn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            btn.click();
+        }, { passive: false });
+    });
+
+})();
+</script>
+</body>
+</html>
